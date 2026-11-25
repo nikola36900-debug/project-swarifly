@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SWARIFLY® — Fine Stationery & Architectural Desk Objects</title>
+  <title>SWARIFLY® DIGITAL CENTER — Flight &amp; Rail Tickets, Xerox, Print &amp; Online Services</title>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts: Anton (Condensed Brutalist Display), Inter (Swiss UI), Caveat (Handwritten Editorial Accent), JetBrains Mono (Coordinates & Catalog Index) -->
+  <!-- Google Fonts: Anton, Inter, Caveat, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@600;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@600;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 
   <script>
     tailwind.config = {
@@ -21,6 +21,7 @@
             ink: '#111111',
             crimson: '#D81E1E',
             crimsonDark: '#B31717',
+            whatsapp: '#16A34A',
           },
           fontFamily: {
             display: ['Anton', 'sans-serif'],
@@ -34,7 +35,9 @@
   </script>
 
   <style>
-    /* Custom Base Styles & Architectural Paper Grain Texture */
+    /* =========================================================
+       SWISS BRUTALIST EDITORIAL DESIGN SYSTEM
+    ========================================================== */
     :root {
       --bg-stone: #ECEBE8;
       --ink-black: #111111;
@@ -50,7 +53,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Subtle tactile cotton paper grain overlay */
+    /* Tactile Paper Grain Overlay */
     .paper-grain::before {
       content: "";
       position: fixed;
@@ -63,37 +66,28 @@
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     }
 
-    /* Swiss Architectural Grid Borders */
-    .grid-border-b {
-      border-bottom: 1px solid var(--grid-line);
-    }
-    .grid-border-t {
-      border-top: 1px solid var(--grid-line);
-    }
-    .grid-border-r {
-      border-right: 1px solid var(--grid-line);
-    }
-    .grid-border-l {
-      border-left: 1px solid var(--grid-line);
-    }
+    /* 1px Architectural Grid Rules */
+    .grid-border-b { border-bottom: 1px solid var(--grid-line); }
+    .grid-border-t { border-top: 1px solid var(--grid-line); }
+    .grid-border-r { border-right: 1px solid var(--grid-line); }
+    .grid-border-l { border-left: 1px solid var(--grid-line); }
 
-    /* Editorial High-Contrast Monochrome Photo Treatment */
+    /* Full-Color Vibrant Editorial Photo Treatment */
     .editorial-photo {
-      filter: grayscale(100%) contrast(122%) brightness(96%);
+      filter: contrast(105%) saturate(112%);
       transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), filter 0.45s ease;
     }
     .group:hover .editorial-photo {
       transform: scale(1.04);
-      filter: grayscale(100%) contrast(130%) brightness(92%);
+      filter: contrast(108%) saturate(120%);
     }
 
-    /* Hero Subject Cutout Blend Mode so dark ink/pen sits naturally over the crimson circle */
+    /* Hero Subject Full-Color Focal Presentation */
     .hero-blend-photo {
-      filter: grayscale(100%) contrast(135%) brightness(98%);
-      mix-blend-mode: multiply;
+      filter: contrast(106%) saturate(115%);
     }
 
-    /* Display Typography Tight Leading */
+    /* Condensed Mega Typography */
     .display-mega {
       font-family: 'Anton', sans-serif;
       line-height: 0.90;
@@ -114,73 +108,54 @@
       position: absolute;
       background-color: rgba(17, 17, 17, 0.45);
     }
-    .crosshair::before {
-      top: 7px;
-      left: 0;
-      width: 15px;
-      height: 1px;
-    }
-    .crosshair::after {
-      top: 0;
-      left: 7px;
-      width: 1px;
-      height: 15px;
-    }
+    .crosshair::before { top: 7px; left: 0; width: 15px; height: 1px; }
+    .crosshair::after { top: 0; left: 7px; width: 1px; height: 15px; }
 
-    /* =========================================================
-       CUSTOM SVG LOGO, PRELOADER & MOTION SYSTEM
-    ========================================================== */
     /* Preloader Curtain */
     #swarifly-preloader {
-      transition: transform 0.85s cubic-bezier(0.76, 0, 0.24, 1), opacity 0.5s ease;
+      transition: transform 0.8s cubic-bezier(0.76, 0, 0.24, 1);
     }
     #swarifly-preloader.curtain-up {
       transform: translateY(-100%);
       pointer-events: none;
     }
 
-    /* SVG Nib & Monogram Stroke Draw */
-    .nib-draw-path {
+    .circuit-draw-path {
       stroke-dasharray: 260;
       stroke-dashoffset: 260;
-      animation: drawNibStroke 1.05s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      animation: drawStroke 1.0s cubic-bezier(0.22, 1, 0.36, 1) forwards;
     }
-    @keyframes drawNibStroke {
-      to {
-        stroke-dashoffset: 0;
-      }
+    @keyframes drawStroke {
+      to { stroke-dashoffset: 0; }
     }
 
-    /* Header & Footer Logo Hover Nib Stroke Draw */
+    /* Header & Footer Logo Hover Animation */
     .brand-logo-group .logo-stroke {
       stroke-dasharray: 120;
       stroke-dashoffset: 0;
-      transition: stroke-dashoffset 0.6s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.3s ease;
+      transition: stroke 0.3s ease;
     }
     .brand-logo-group:hover .logo-stroke {
-      animation: logoReDraw 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation: logoReDraw 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       stroke: #D81E1E;
-    }
-    .brand-logo-group:hover .logo-nib-dot {
-      fill: #D81E1E;
     }
     @keyframes logoReDraw {
       0% { stroke-dashoffset: 120; }
       100% { stroke-dashoffset: 0; }
     }
 
-    /* Scroll-Triggered Staggered Reveals */
+    /* Scroll Staggered Reveals */
     .reveal-up {
       opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(24px);
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .reveal-up.is-visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    /* Infinite Editorial Marquee Ticker */
+    /* Infinite Ticker Marquee */
     @keyframes marqueeScroll {
       0% { transform: translateX(0%); }
       100% { transform: translateX(-50%); }
@@ -188,93 +163,63 @@
     .animate-marquee {
       display: flex;
       width: max-content;
-      animation: marqueeScroll 32s linear infinite;
+      animation: marqueeScroll 30s linear infinite;
     }
     .marquee-wrapper:hover .animate-marquee {
       animation-play-state: paused;
     }
 
-    /* Magnetic Button Smooth Return */
+    /* Magnetic Button */
     .magnetic-btn {
-      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s ease;
+      transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s ease;
       will-change: transform;
     }
 
-    /* Modal Entrance Animation */
     @keyframes modalPop {
-      from {
-        opacity: 0;
-        transform: translateY(16px) scale(0.98);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
+      from { opacity: 0; transform: translateY(14px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
     }
     .animate-modal-pop {
-      animation: modalPop 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation: modalPop 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-      width: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #ECEBE8;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #111111;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #D81E1E;
-    }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #ECEBE8; }
+    ::-webkit-scrollbar-thumb { background: #111111; }
+    ::-webkit-scrollbar-thumb:hover { background: #D81E1E; }
   </style>
 </head>
 <body class="paper-grain selection:bg-crimson selection:text-white">
 
   <!-- =========================================================
-       00. SWISS EDITORIAL INK-DROP PRELOADER CURTAIN
+       00. EDITORIAL TERMINAL PRELOADER CURTAIN
   ========================================================== -->
   <div id="swarifly-preloader" class="fixed inset-0 z-[100] bg-ink text-stoneBg flex flex-col items-center justify-between p-8">
     <div class="w-full flex items-center justify-between font-mono text-[10px] tracking-[0.2em] uppercase text-stoneBg/60">
-      <span>SWARIFLY® ARCHIVE</span>
-      <span>EST. 2018</span>
+      <span>SWARIFLY® DIGITAL &amp; DOCUMENT CENTER</span>
+      <span>+91 97748 37504</span>
     </div>
 
-    <!-- Center Animated Fountain Pen Nib + 'S' Monogram -->
     <div class="flex flex-col items-center">
-      <svg class="w-20 h-24 mb-5" viewBox="0 0 80 96" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Geometric Fountain Pen Nib Outline -->
-        <path
-          class="nib-draw-path"
-          d="M40 6L68 48L56 86H24L12 48L40 6Z"
-          stroke="#ECEBE8"
-          stroke-width="2.2"
-          stroke-linejoin="miter"
-        />
-        <!-- Nib Breather Hole & Slit -->
-        <line class="nib-draw-path" x1="40" y1="6" x2="40" y2="44" stroke="#D81E1E" stroke-width="2" />
-        <circle cx="40" cy="48" r="4.5" fill="#D81E1E" />
-        <!-- Geometric 'S' Monogram Integrated in Nib Collar -->
-        <path
-          class="nib-draw-path"
-          d="M48 60H33V68H47V76H32"
-          stroke="#ECEBE8"
-          stroke-width="2.2"
-          stroke-linecap="square"
-        />
+      <!-- Geometric Document & Ticket Pass SVG -->
+      <svg class="w-24 h-24 mb-5" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect class="circuit-draw-path" x="18" y="12" width="60" height="72" stroke="#ECEBE8" stroke-width="2.4" />
+        <line class="circuit-draw-path" x1="30" y1="30" x2="66" y2="30" stroke="#D81E1E" stroke-width="2.6" />
+        <line class="circuit-draw-path" x1="30" y1="44" x2="66" y2="44" stroke="#ECEBE8" stroke-width="2.2" />
+        <line class="circuit-draw-path" x1="30" y1="56" x2="54" y2="56" stroke="#ECEBE8" stroke-width="2.2" />
+        <circle cx="62" cy="68" r="6" fill="#D81E1E" />
       </svg>
 
       <div class="font-display text-3xl tracking-[0.06em] uppercase text-stoneBg">
         SWARIFLY<span class="text-crimson text-sm align-top ml-0.5">®</span>
       </div>
-      <div class="mt-2 font-mono text-[10px] uppercase tracking-[0.24em] text-stoneBg/60">
-        PREPARING ARCHIVAL SHEET...
+      <div class="mt-2 font-mono text-[10px] uppercase tracking-[0.22em] text-stoneBg/60">
+        TICKETS • XEROX • PRINT • ONLINE PORTAL
       </div>
     </div>
 
     <div class="w-full max-w-xs bg-stoneBg/15 h-[2px] overflow-hidden">
-      <div class="h-full bg-crimson w-full origin-left animate-[drawNibStroke_1.1s_ease-out_forwards]"></div>
+      <div class="h-full bg-crimson w-full origin-left animate-[drawStroke_1.05s_ease-out_forwards]"></div>
     </div>
   </div>
 
@@ -282,70 +227,66 @@
   <div class="max-w-[1440px] mx-auto bg-stoneBg min-h-screen border-x border-ink/20 relative">
 
     <!-- =========================================================
-         TOP NAVIGATION BAR (Exact Swiss Divided Header + Custom SVG Mark)
+         TOP NAVIGATION BAR (Swiss Grid Header + Direct Call & WhatsApp)
     ========================================================== -->
     <header class="sticky top-0 z-40 bg-stoneBg/95 backdrop-blur-sm grid-border-b">
       <div class="flex items-center justify-between px-4 sm:px-8 h-16 md:h-20">
-        <!-- Brand Logo + Custom Geometric Fountain-Pen Nib & 'S' SVG Mark -->
-        <div class="flex items-center gap-4 sm:gap-8">
+        <!-- Brand Logo + Custom Geometric Document/Pass SVG Mark -->
+        <div class="flex items-center gap-4 sm:gap-6">
           <a href="#" class="brand-logo-group inline-flex items-center gap-2.5 text-ink">
-            <!-- Custom Geometric Nib & 'S' Monogram SVG -->
-            <svg class="w-7 h-8 shrink-0" viewBox="0 0 36 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path
-                class="logo-stroke"
-                d="M18 2L32 21L26 39H10L4 21L18 2Z"
-                stroke="#111111"
-                stroke-width="2"
-              />
-              <line class="logo-stroke" x1="18" y1="2" x2="18" y2="19" stroke="#111111" stroke-width="1.75" />
-              <circle class="logo-nib-dot transition-colors duration-300" cx="18" cy="21.5" r="2.4" fill="#111111" />
-              <path
-                class="logo-stroke"
-                d="M22 27H14.5V30.5H21.5V34H14"
-                stroke="#111111"
-                stroke-width="1.8"
-                stroke-linecap="square"
-              />
+            <svg class="w-8 h-8 shrink-0" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect class="logo-stroke" x="7" y="4" width="26" height="32" stroke="#111111" stroke-width="2.2" />
+              <line class="logo-stroke" x1="13" y1="12" x2="27" y2="12" stroke="#D81E1E" stroke-width="2.2" />
+              <line class="logo-stroke" x1="13" y1="19" x2="27" y2="19" stroke="#111111" stroke-width="2.2" />
+              <line class="logo-stroke" x1="13" y1="26" x2="21" y2="26" stroke="#111111" stroke-width="2.2" />
+              <circle cx="26" cy="28" r="3" fill="#D81E1E" />
             </svg>
             <span class="font-display text-2xl sm:text-3xl tracking-tight flex items-start">
               SWARIFLY<span class="text-xs font-sans font-bold ml-0.5 mt-1">®</span>
             </span>
           </a>
-          <div class="hidden lg:block text-[9px] font-mono uppercase tracking-[0.14em] leading-tight text-ink/75 border-l border-ink/25 pl-4">
-            FINE STATIONERY<br />
-            PAPER • INK • OBJECTS
+          <div class="hidden xl:block text-[9px] font-mono uppercase tracking-[0.14em] leading-tight text-ink/75 border-l border-ink/25 pl-4">
+            DIGITAL &amp; DOCUMENT CENTER<br />
+            TICKETS • XEROX • PRINT • PORTAL
           </div>
         </div>
 
-        <!-- Center-Right Divided Grid Navigation Links -->
-        <nav class="hidden md:flex items-center h-full">
-          <a href="#catalog" class="h-full flex items-center px-5 lg:px-7 text-[11px] font-semibold tracking-[0.14em] uppercase hover:text-crimson transition-colors grid-border-l">
-            CATALOG
+        <!-- Center-Right Divided Navigation Links -->
+        <nav class="hidden lg:flex items-center h-full">
+          <a href="#services" class="h-full flex items-center px-5 text-[11px] font-semibold tracking-[0.14em] uppercase hover:text-crimson transition-colors grid-border-l">
+            SERVICES
           </a>
-          <a href="#categories" class="h-full flex items-center px-5 lg:px-7 text-[11px] font-semibold tracking-[0.14em] uppercase hover:text-crimson transition-colors grid-border-l">
-            BESPOKE
+          <a href="#categories" class="h-full flex items-center px-5 text-[11px] font-semibold tracking-[0.14em] uppercase hover:text-crimson transition-colors grid-border-l">
+            TICKETS &amp; XEROX
           </a>
-          <a href="#about" class="h-full flex items-center px-5 lg:px-7 text-[11px] font-semibold tracking-[0.14em] uppercase hover:text-crimson transition-colors grid-border-l">
-            ABOUT
+          <a href="#about" class="h-full flex items-center px-5 text-[11px] font-semibold tracking-[0.14em] uppercase hover:text-crimson transition-colors grid-border-l">
+            ABOUT CENTER
           </a>
-          <a href="#journal" class="h-full flex items-center px-5 lg:px-7 text-[11px] font-semibold tracking-[0.14em] uppercase hover:text-crimson transition-colors grid-border-l">
-            JOURNAL
+          <a href="tel:+919774837504" class="h-full flex items-center gap-2 px-5 text-[11px] font-mono font-bold tracking-[0.1em] uppercase text-ink hover:text-crimson transition-colors grid-border-l">
+            <span>CALL: 9774837504</span>
           </a>
-          <button onclick="openContactModal()" class="h-full flex items-center px-5 lg:px-7 text-[11px] font-semibold tracking-[0.14em] uppercase hover:text-crimson transition-colors grid-border-l cursor-pointer">
-            CONTACT
-          </button>
         </nav>
 
-        <!-- Far Right: Rule Line + Interactive Cart Circle Trigger -->
-        <div class="flex items-center gap-3 sm:gap-5">
-          <span class="hidden sm:inline-block w-10 lg:w-16 h-[1px] bg-ink/40"></span>
+        <!-- Right Quick Action Controls: Direct WhatsApp + Service List Bag -->
+        <div class="flex items-center gap-2.5 sm:gap-4">
+          <a
+            href="https://wa.me/919774837504?text=Hello%20SWARIFLY%20Digital%20Center%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 bg-ink hover:bg-whatsapp text-stoneBg text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-[0.12em] px-3.5 py-2 rounded-[2px] transition-colors"
+          >
+            <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+            <span class="hidden sm:inline">WHATSAPP</span>
+            <span class="sm:hidden">CHAT</span>
+          </a>
+
           <button
             onclick="toggleCart(true)"
-            aria-label="Open Shopping Bag"
-            class="group relative flex items-center gap-2.5 pl-3 pr-1.5 py-1.5 rounded-full hover:bg-ink/5 transition-colors cursor-pointer"
+            aria-label="Open Service List"
+            class="group relative flex items-center gap-2 pl-2.5 pr-1.5 py-1.5 rounded-full hover:bg-ink/5 transition-colors cursor-pointer"
           >
-            <span class="text-[10px] font-mono uppercase tracking-widest hidden sm:inline text-ink/80 group-hover:text-ink">BAG</span>
-            <span id="nav-cart-badge" class="w-6 h-6 rounded-full bg-ink text-stoneBg group-hover:bg-crimson transition-colors flex items-center justify-center text-[11px] font-mono font-medium">
+            <span class="text-[10px] font-mono uppercase tracking-widest hidden sm:inline text-ink/80 group-hover:text-ink">LIST</span>
+            <span id="nav-cart-badge" class="w-6 h-6 rounded-full bg-crimson text-white group-hover:bg-ink transition-colors flex items-center justify-center text-[11px] font-mono font-bold">
               2
             </span>
           </button>
@@ -354,7 +295,7 @@
           <button
             onclick="toggleMobileMenu()"
             aria-label="Toggle Menu"
-            class="md:hidden p-2 text-ink hover:text-crimson focus:outline-none"
+            class="lg:hidden p-2 text-ink hover:text-crimson focus:outline-none"
           >
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M4 7h16M4 17h16" />
@@ -364,101 +305,117 @@
       </div>
 
       <!-- Mobile Dropdown Drawer -->
-      <div id="mobile-menu" class="hidden md:hidden bg-stoneBg grid-border-t px-6 py-5 space-y-3">
-        <a href="#catalog" onclick="toggleMobileMenu()" class="block text-xs font-semibold tracking-[0.16em] uppercase py-1.5 hover:text-crimson">01 — CATALOG</a>
-        <a href="#categories" onclick="toggleMobileMenu()" class="block text-xs font-semibold tracking-[0.16em] uppercase py-1.5 hover:text-crimson">02 — BESPOKE & CATEGORIES</a>
-        <a href="#about" onclick="toggleMobileMenu()" class="block text-xs font-semibold tracking-[0.16em] uppercase py-1.5 hover:text-crimson">03 — ABOUT SWARIFLY</a>
-        <a href="#journal" onclick="toggleMobileMenu()" class="block text-xs font-semibold tracking-[0.16em] uppercase py-1.5 hover:text-crimson">04 — ARCHIVE JOURNAL</a>
-        <button onclick="toggleMobileMenu(); openContactModal();" class="block text-left w-full text-xs font-semibold tracking-[0.16em] uppercase py-1.5 text-crimson">05 — CONTACT STUDIO →</button>
+      <div id="mobile-menu" class="hidden lg:hidden bg-stoneBg grid-border-t px-6 py-5 space-y-3">
+        <a href="#services" onclick="toggleMobileMenu()" class="block text-xs font-semibold tracking-[0.16em] uppercase py-1.5 hover:text-crimson">01 — ALL DIGITAL &amp; PRINT SERVICES</a>
+        <a href="#categories" onclick="toggleMobileMenu()" class="block text-xs font-semibold tracking-[0.16em] uppercase py-1.5 hover:text-crimson">02 — FLIGHT, RAIL TICKETS &amp; XEROX</a>
+        <a href="#about" onclick="toggleMobileMenu()" class="block text-xs font-semibold tracking-[0.16em] uppercase py-1.5 hover:text-crimson">03 — ABOUT SWARIFLY CENTER</a>
+        <div class="pt-2 flex flex-wrap gap-3">
+          <a href="tel:+919774837504" class="inline-flex items-center gap-2 bg-ink text-stoneBg px-4 py-2.5 text-[11px] font-mono font-bold uppercase tracking-wider">
+            📞 CALL 9774837504
+          </a>
+          <a href="https://wa.me/919774837504?text=Hello%20SWARIFLY%2C%20I%20need%20assistance%20with%20a%20service." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-crimson text-white px-4 py-2.5 text-[11px] font-mono font-bold uppercase tracking-wider">
+            💬 WHATSAPP NOW
+          </a>
+        </div>
       </div>
     </header>
 
     <!-- =========================================================
-         SECTION 01: HERO ("IDEAS IN INK" + CRIMSON CIRCLE + EDITORIAL PEN)
+         SECTION 01: HERO ("DIGITAL & PRINT HUB" + CRIMSON CIRCLE + FULL-COLOR PHOTO)
     ========================================================== -->
     <section class="relative grid-border-b overflow-hidden">
-      <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[560px] lg:min-h-[670px] relative">
+      <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[570px] lg:min-h-[670px] relative">
 
-        <!-- Left / Foreground Editorial Typography Column -->
+        <!-- Left Editorial Typography & Direct Contact Column -->
         <div class="lg:col-span-6 px-5 sm:px-10 pt-8 pb-10 lg:py-12 flex flex-col justify-between z-20 relative reveal-up">
           <!-- Section Index -->
           <div class="flex items-center gap-4">
             <span class="font-mono text-[11px] font-medium tracking-[0.18em] text-ink">01 / 04</span>
             <span class="w-14 h-[1px] bg-ink/40"></span>
+            <span class="font-mono text-[10px] uppercase tracking-widest text-crimson font-bold">OPEN TODAY • INSTANT SERVICE</span>
           </div>
 
-          <!-- Massive Stacked Headline Overlapping Visual -->
+          <!-- Massive Stacked Condensed Headline -->
           <div class="my-8 lg:my-6">
-            <h1 class="display-mega text-[5.2rem] sm:text-[7.2rem] xl:text-[8.8rem] text-ink select-none">
-              IDEAS<br />
-              <span class="relative inline-block">IN INK</span>
+            <h1 class="display-mega text-[4.6rem] sm:text-[6.8rem] xl:text-[8.2rem] text-ink select-none">
+              DIGITAL<br />
+              <span class="relative inline-block">&amp; PRINT HUB</span>
             </h1>
 
-            <p class="mt-6 max-w-[310px] text-[11px] sm:text-xs font-medium uppercase tracking-[0.13em] leading-[1.65] text-ink/90">
-              WE TURN THOUGHTS INTO TANGIBLE ARTIFACTS THAT LAST.
+            <p class="mt-6 max-w-[400px] text-[11px] sm:text-xs font-medium uppercase tracking-[0.12em] leading-[1.65] text-ink/90">
+              FLIGHT, TRAIN (IRCTC) &amp; BUS TICKET BOOKING, HIGH-SPEED XEROX &amp; COLOR LASER PRINTING, ONLINE CITIZEN PORTAL, PHOTO STUDIO &amp; OFFICE STATIONERY.
             </p>
 
-            <div class="w-6 h-[1px] bg-ink/50 my-5"></div>
+            <div class="w-8 h-[1px] bg-ink/50 my-5"></div>
 
-            <!-- Crimson Primary Magnetic CTA Button -->
-            <div class="flex flex-wrap items-center gap-4">
+            <!-- Primary Direct WhatsApp & Direct Call CTA Buttons -->
+            <div class="flex flex-wrap items-center gap-3.5">
               <a
-                href="#catalog"
-                class="magnetic-btn inline-flex items-center justify-between gap-6 bg-crimson hover:bg-crimsonDark text-white text-[11px] font-bold uppercase tracking-[0.16em] px-6 py-4 rounded-[2px] shadow-sm"
+                href="https://wa.me/919774837504?text=Hello%20SWARIFLY%20Digital%20Center%2C%20I%20want%20to%20book%20a%20ticket%20%2F%20get%20a%20printout%20or%20online%20service."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="magnetic-btn inline-flex items-center justify-between gap-5 bg-crimson hover:bg-crimsonDark text-white text-[11px] font-bold uppercase tracking-[0.15em] px-6 py-4 rounded-[2px] shadow-sm"
               >
-                <span>EXPLORE OBJECTS</span>
-                <span class="text-sm leading-none">→</span>
+                <span>WHATSAPP: 9774837504</span>
+                <span class="text-sm leading-none">↗</span>
+              </a>
+
+              <a
+                href="tel:+919774837504"
+                class="magnetic-btn inline-flex items-center justify-between gap-4 bg-ink hover:bg-ink/85 text-stoneBg text-[11px] font-bold uppercase tracking-[0.15em] px-6 py-4 rounded-[2px]"
+              >
+                <span>CALL NOW</span>
+                <span class="text-sm leading-none">☎</span>
               </a>
             </div>
           </div>
 
-          <!-- Bottom Micro Coordinate Note (Mobile/Tablet) -->
+          <!-- Bottom Micro Info (Mobile/Tablet) -->
           <div class="lg:hidden flex items-center justify-between pt-4 border-t border-ink/15 text-[10px] font-mono uppercase tracking-widest text-ink/70">
-            <span>CRAFTED STATIONERY</span>
-            <span>SINCE 2018</span>
+            <span>TICKETS • XEROX • ONLINE PORTAL</span>
+            <span>+91 97748 37504</span>
           </div>
         </div>
 
-        <!-- Right Visual Canvas: Bold Crimson Circle + Monochrome Luxury Fountain Pen & Paper -->
+        <!-- Right Visual Canvas: Crimson Circle + Vibrant Full-Color Print & Travel Photo -->
         <div class="lg:col-span-6 relative flex items-center justify-center min-h-[420px] lg:min-h-full px-4 pb-8 lg:p-0 reveal-up" style="transition-delay: 140ms;">
 
-          <!-- Technical Crosshairs matching Reference -->
+          <!-- Technical Crosshairs -->
           <div class="crosshair hidden sm:block absolute top-14 left-12 z-20"></div>
           <div class="crosshair hidden sm:block absolute top-1/2 left-4 z-20"></div>
           <div class="crosshair hidden sm:block absolute bottom-20 right-1/3 z-20"></div>
 
-          <!-- Handwritten Script Annotation ("Write Bigger") -->
+          <!-- Handwritten Script Annotation -->
           <div class="absolute top-4 right-6 sm:top-10 sm:right-12 z-30 text-right transform -rotate-12 select-none">
             <span class="font-script text-3xl sm:text-4xl font-bold text-ink block leading-none">
-              Write
+              Fast Print
             </span>
             <span class="font-script text-3xl sm:text-4xl font-bold text-ink block leading-none underline decoration-ink/60 decoration-1 underline-offset-4">
-              Bigger
+              &amp; Tickets
             </span>
           </div>
 
-          <!-- Signature Crimson Red Geometric Circle with Scroll Parallax -->
-          <div id="hero-crimson-orb" class="relative w-[310px] h-[310px] sm:w-[440px] sm:h-[440px] xl:w-[500px] xl:h-[500px] rounded-full bg-crimson flex items-center justify-center shadow-inner overflow-visible will-change-transform">
-            <!-- Secondary Lower Crimson Arc Accent (mimicking reference red sweep) -->
+          <!-- Signature Crimson Red Geometric Circle with Parallax -->
+          <div id="hero-crimson-orb" class="relative w-[310px] h-[310px] sm:w-[440px] sm:h-[440px] xl:w-[500px] xl:h-[500px] rounded-full bg-crimson flex items-center justify-center shadow-lg overflow-visible will-change-transform">
             <div class="hidden sm:block absolute -bottom-16 -left-24 w-64 h-64 rounded-full bg-crimson/95 -z-10"></div>
 
-            <!-- High-Contrast Monochrome Luxury Fountain Pen & Notebook Photography -->
-            <div class="relative w-[112%] h-[112%] -mt-6 flex items-center justify-center overflow-hidden rounded-full">
+            <!-- Vibrant Full-Color Aviation & Travel / Print Center Photo -->
+            <div class="relative w-[92%] h-[92%] flex items-center justify-center overflow-hidden rounded-full border-4 border-stoneBg shadow-xl">
               <img
-                src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=1200&q=85"
-                alt="SWARIFLY Obsidian Fountain Pen and Cotton Paper"
-                onerror="this.src='https://placehold.co/800x800/111111/ECEBE8?text=SWARIFLY+FOUNTAIN+PEN'"
-                class="w-full h-full object-cover object-center hero-blend-photo scale-110 transition-transform duration-700 hover:scale-115"
+                src="https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=1200&q=85"
+                alt="SWARIFLY Flight Rail Ticket Booking and High-Speed Print Center"
+                onerror="this.src='https://placehold.co/800x800/D81E1E/FFFFFF?text=SWARIFLY+DIGITAL+CENTER'"
+                class="w-full h-full object-cover object-center hero-blend-photo transition-transform duration-700 hover:scale-105"
               />
             </div>
           </div>
 
-          <!-- Right-Edge Vertical Micro Label ("CRAFTED STATIONERY SINCE 2018") -->
+          <!-- Right-Edge Vertical Micro Label -->
           <div class="hidden lg:block absolute bottom-10 right-8 z-20 text-left font-mono text-[9px] uppercase tracking-[0.16em] leading-[1.6] text-ink/80">
-            CRAFTED<br />
-            STATIONERY<br />
-            SINCE<br />
-            2018
+            SWARIFLY<br />
+            DIGITAL<br />
+            CENTER<br />
+            9774837504
           </div>
         </div>
       </div>
@@ -469,89 +426,126 @@
     ========================================================== -->
     <div class="marquee-wrapper grid-border-b bg-ink text-stoneBg py-3 overflow-hidden select-none">
       <div class="animate-marquee flex items-center gap-8 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.22em]">
-        <span>SWARIFLY® ARCHIVAL PAPER</span>
+        <span>FLIGHT, IRCTC TRAIN &amp; BUS TICKET BOOKING</span>
         <span class="text-crimson">•</span>
-        <span>SOLID BRASS INSTRUMENTS</span>
+        <span>HIGH-SPEED LASER XEROX, COLOR PRINT &amp; LAMINATION</span>
         <span class="text-crimson">•</span>
-        <span>JAPANESE PIGMENT INK</span>
+        <span>PAN CARD, PASSPORT SEVA, AADHAAR &amp; BILL PAY</span>
         <span class="text-crimson">•</span>
-        <span>SWISS GRID CRAFTSMANSHIP</span>
+        <span>PASSPORT PHOTOS, PVC CARDS &amp; OFFICE STATIONERY</span>
         <span class="text-crimson">•</span>
-        <span>SWARIFLY® ARCHIVAL PAPER</span>
+        <span>WHATSAPP &amp; CALL: +91 97748 37504</span>
         <span class="text-crimson">•</span>
-        <span>SOLID BRASS INSTRUMENTS</span>
+        <span>FLIGHT, IRCTC TRAIN &amp; BUS TICKET BOOKING</span>
         <span class="text-crimson">•</span>
-        <span>JAPANESE PIGMENT INK</span>
+        <span>HIGH-SPEED LASER XEROX, COLOR PRINT &amp; LAMINATION</span>
         <span class="text-crimson">•</span>
-        <span>SWISS GRID CRAFTSMANSHIP</span>
+        <span>PAN CARD, PASSPORT SEVA, AADHAAR &amp; BILL PAY</span>
+        <span class="text-crimson">•</span>
+        <span>PASSPORT PHOTOS, PVC CARDS &amp; OFFICE STATIONERY</span>
+        <span class="text-crimson">•</span>
+        <span>WHATSAPP &amp; CALL: +91 97748 37504</span>
         <span class="text-crimson">•</span>
       </div>
     </div>
 
     <!-- =========================================================
-         SECTION 02: ABOUT & CATEGORIES SPLIT GRID ("MORE THAN PAPER")
+         SECTION 02: ABOUT & SERVICE DEPARTMENTS SPLIT GRID
     ========================================================== -->
     <section id="about" class="grid-border-b">
       <div class="grid grid-cols-1 lg:grid-cols-12">
 
-        <!-- Left Column (4 cols): 02 ABOUT + Condensed Headline + Editorial Copy -->
+        <!-- Left Column (4 cols): 02 ABOUT + Condensed Headline + Copy -->
         <div class="lg:col-span-4 p-6 sm:p-10 flex flex-col justify-between grid-border-b lg:grid-border-b-0 lg:grid-border-r reveal-up">
-            </button>
+          <div>
+            <div class="flex items-center gap-4 mb-6">
+              <span class="font-mono text-[11px] font-medium tracking-[0.15em]">02</span>
+              <span class="text-[11px] font-bold uppercase tracking-[0.18em]">ABOUT CENTER</span>
+              <span class="w-12 h-[1px] bg-ink/40"></span>
+            </div>
+
+            <h2 class="display-mega text-4xl sm:text-5xl xl:text-[3.4rem] text-ink mb-6">
+              YOUR COMPLETE<br />
+              DIGITAL &amp;<br />
+              PRINT DESK
+            </h2>
+
+            <p class="text-xs sm:text-[13px] leading-[1.7] text-ink/80 max-w-sm">
+              <strong>SWARIFLY® Digital Center</strong> is your trusted neighborhood hub for travel ticketing, high-speed Xerox &amp; color laser printing, government online portal services, instant passport photos, PVC smart cards, and office stationery. Send your PDFs on WhatsApp and pick them up ready with zero waiting.
+            </p>
+          </div>
+
+          <div class="mt-8 pt-4 flex flex-wrap items-center gap-5">
+            <a
+              href="https://wa.me/919774837504?text=Hi%20SWARIFLY%2C%20I%20am%20sending%20a%20document%20for%20Print%20%2F%20Xerox."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group inline-flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.16em] text-crimson hover:text-ink transition-colors"
+            >
+              <span>SEND FILE ON WHATSAPP</span>
+              <span class="transform group-hover:translate-x-1.5 transition-transform">→</span>
+            </a>
           </div>
         </div>
 
-        <!-- Center Column (5 cols): Dramatic Monochrome Architectural Desk & Paper Photo -->
+        <!-- Center Column (5 cols): Full-Color Commercial Printing & Document Studio Photo -->
         <div class="lg:col-span-5 p-6 sm:p-8 flex items-center justify-center grid-border-b lg:grid-border-b-0 lg:grid-border-r bg-stoneCard/40 reveal-up" style="transition-delay: 120ms;">
           <div class="group relative w-full h-[300px] sm:h-[360px] overflow-hidden bg-ink">
             <img
-              src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=1000&q=85"
-              alt="Minimalist Architectural Notebook and Brass Pen Composition"
-              onerror="this.src='https://placehold.co/900x700/181818/ECEBE8?text=ARCHIVAL+PAPER+%26+BRASS'"
+              src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=1000&q=85"
+              alt="Full-Color High-Speed Laser Printer, Xerox and Binding Studio"
+              onerror="this.src='https://placehold.co/900x700/181818/ECEBE8?text=PRINT+%26+XEROX+STUDIO'"
               class="w-full h-full object-cover editorial-photo"
             />
-            <div class="absolute bottom-3 left-3 bg-stoneBg/90 backdrop-blur-xs px-2.5 py-1 text-[9px] font-mono uppercase tracking-widest text-ink">
-              FIG 02. — 300GSM COTTON RAG
+            <div class="absolute bottom-3 left-3 bg-stoneBg/95 px-2.5 py-1 text-[9px] font-mono uppercase tracking-widest text-ink">
+              UNIT 02. — LASER XEROX, COLOR PRINT &amp; E-TICKETING
             </div>
           </div>
         </div>
 
-        <!-- Right Column (3 cols): CATEGORIES Interactive List -->
+        <!-- Right Column (3 cols): Interactive Service Departments List -->
         <div id="categories" class="lg:col-span-3 p-6 sm:p-10 flex flex-col justify-between reveal-up" style="transition-delay: 240ms;">
           <div>
             <h3 class="display-mega text-3xl sm:text-4xl text-ink mb-7">
-              CATEGORIES
+              SERVICES
             </h3>
 
             <ul class="space-y-3.5 text-xs sm:text-[13px] font-medium text-ink/85">
               <li>
-                <button onclick="filterAndScroll('pens')" class="w-full text-left flex items-center justify-between py-1 hover:text-crimson hover:translate-x-1 transition-all cursor-pointer">
-                  <span>Fountain Pens</span>
+                <button onclick="filterAndScroll('ticketing')" class="w-full text-left flex items-center justify-between py-1 hover:text-crimson hover:translate-x-1 transition-all cursor-pointer">
+                  <span>Flight, Train &amp; Bus Tickets</span>
                   <span class="font-mono text-[10px] text-ink/45">01</span>
                 </button>
               </li>
               <li>
-                <button onclick="filterAndScroll('paper')" class="w-full text-left flex items-center justify-between py-1 hover:text-crimson hover:translate-x-1 transition-all cursor-pointer">
-                  <span>Archival Notebooks</span>
+                <button onclick="filterAndScroll('print')" class="w-full text-left flex items-center justify-between py-1 hover:text-crimson hover:translate-x-1 transition-all cursor-pointer">
+                  <span>Xerox, Color Print &amp; Lamination</span>
                   <span class="font-mono text-[10px] text-ink/45">02</span>
                 </button>
               </li>
               <li>
-                <button onclick="filterAndScroll('desk')" class="w-full text-left flex items-center justify-between py-1 hover:text-crimson hover:translate-x-1 transition-all cursor-pointer">
-                  <span>Brass Desk Objects</span>
+                <button onclick="filterAndScroll('online')" class="w-full text-left flex items-center justify-between py-1 hover:text-crimson hover:translate-x-1 transition-all cursor-pointer">
+                  <span>PAN, Passport &amp; Aadhaar</span>
                   <span class="font-mono text-[10px] text-ink/45">03</span>
                 </button>
               </li>
               <li>
-                <button onclick="filterAndScroll('ink')" class="w-full text-left flex items-center justify-between py-1 hover:text-crimson hover:translate-x-1 transition-all cursor-pointer">
-                  <span>Wax Seals & Ink</span>
+                <button onclick="filterAndScroll('studio')" class="w-full text-left flex items-center justify-between py-1 hover:text-crimson hover:translate-x-1 transition-all cursor-pointer">
+                  <span>Passport Photo &amp; PVC Cards</span>
                   <span class="font-mono text-[10px] text-ink/45">04</span>
                 </button>
               </li>
               <li>
-                <button onclick="openContactModal('Bespoke Monogramming')" class="w-full text-left flex items-center justify-between py-1 hover:text-crimson hover:translate-x-1 transition-all cursor-pointer">
-                  <span>Bespoke Monogramming</span>
-                  <span class="font-mono text-[10px] text-crimson">★</span>
+                <button onclick="filterAndScroll('stationery')" class="w-full text-left flex items-center justify-between py-1 hover:text-crimson hover:translate-x-1 transition-all cursor-pointer">
+                  <span>Office Stationery &amp; Paper</span>
+                  <span class="font-mono text-[10px] text-ink/45">05</span>
                 </button>
+              </li>
+              <li>
+                <a href="tel:+919774837504" class="w-full text-left flex items-center justify-between py-1 text-crimson font-bold hover:translate-x-1 transition-all">
+                  <span>Call: +91 97748 37504</span>
+                  <span class="font-mono text-[10px]">☎</span>
+                </a>
               </li>
             </ul>
           </div>
@@ -561,7 +555,7 @@
               onclick="filterAndScroll('all')"
               class="group inline-flex items-center gap-4 text-[11px] font-bold uppercase tracking-[0.16em] text-ink hover:text-crimson transition-colors cursor-pointer"
             >
-              <span>VIEW ALL CATEGORIES</span>
+              <span>VIEW ALL SERVICES</span>
               <span class="transform group-hover:translate-x-1.5 transition-transform">→</span>
             </button>
           </div>
@@ -571,68 +565,66 @@
     </section>
 
     <!-- =========================================================
-         SECTION 03: SELECTED EDITIONS (STATIONERY PRODUCT GRID)
+         SECTION 03: DIGITAL SERVICES, TICKETING & STATIONERY CATALOG
     ========================================================== -->
-    <section id="catalog" class="grid-border-b px-5 sm:px-10 py-10 sm:py-14">
+    <section id="services" class="grid-border-b px-5 sm:px-10 py-10 sm:py-14">
 
       <!-- Section Header Row -->
       <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-7 reveal-up">
         <div class="flex items-center gap-4">
           <span class="font-mono text-[11px] font-medium tracking-[0.15em]">03</span>
           <h2 class="text-xs sm:text-sm font-extrabold uppercase tracking-[0.16em]">
-            SELECTED OBJECTS
+            DIGITAL SERVICES, TICKETS &amp; STATIONERY
           </h2>
         </div>
 
-        <!-- Category Filter Tabs + View All Action -->
-        <div class="flex flex-wrap items-center gap-2 sm:gap-3">
-          <div id="filter-buttons" class="flex flex-wrap items-center gap-1.5 mr-2">
+        <!-- Category Filter Tabs -->
+        <div class="flex flex-wrap items-center gap-2 sm:gap-2.5">
+          <div id="filter-buttons" class="flex flex-wrap items-center gap-1.5">
             <button data-filter="all" onclick="setFilter('all')" class="filter-btn active px-3 py-1.5 text-[10px] font-mono uppercase tracking-widest bg-ink text-stoneBg transition-colors cursor-pointer">
               ALL (06)
             </button>
-            <button data-filter="pens" onclick="setFilter('pens')" class="filter-btn px-3 py-1.5 text-[10px] font-mono uppercase tracking-widest border border-ink/25 text-ink hover:border-ink transition-colors cursor-pointer">
-              PENS
+            <button data-filter="ticketing" onclick="setFilter('ticketing')" class="filter-btn px-3 py-1.5 text-[10px] font-mono uppercase tracking-widest border border-ink/25 text-ink hover:border-ink transition-colors cursor-pointer">
+              TICKETING
             </button>
-            <button data-filter="paper" onclick="setFilter('paper')" class="filter-btn px-3 py-1.5 text-[10px] font-mono uppercase tracking-widest border border-ink/25 text-ink hover:border-ink transition-colors cursor-pointer">
-              PAPER
+            <button data-filter="print" onclick="setFilter('print')" class="filter-btn px-3 py-1.5 text-[10px] font-mono uppercase tracking-widest border border-ink/25 text-ink hover:border-ink transition-colors cursor-pointer">
+              XEROX &amp; PRINT
             </button>
-            <button data-filter="desk" onclick="setFilter('desk')" class="filter-btn px-3 py-1.5 text-[10px] font-mono uppercase tracking-widest border border-ink/25 text-ink hover:border-ink transition-colors cursor-pointer">
-              DESK & INK
+            <button data-filter="online" onclick="setFilter('online')" class="filter-btn px-3 py-1.5 text-[10px] font-mono uppercase tracking-widest border border-ink/25 text-ink hover:border-ink transition-colors cursor-pointer">
+              ONLINE PORTAL
+            </button>
+            <button data-filter="studio" onclick="setFilter('studio')" class="filter-btn px-3 py-1.5 text-[10px] font-mono uppercase tracking-widest border border-ink/25 text-ink hover:border-ink transition-colors cursor-pointer">
+              PHOTO &amp; PVC
+            </button>
+            <button data-filter="stationery" onclick="setFilter('stationery')" class="filter-btn px-3 py-1.5 text-[10px] font-mono uppercase tracking-widest border border-ink/25 text-ink hover:border-ink transition-colors cursor-pointer">
+              STATIONERY
             </button>
           </div>
-
-          <button
-            onclick="setFilter('all')"
-            class="group inline-flex items-center gap-3 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.16em] text-ink hover:text-crimson transition-colors cursor-pointer"
-          >
-            <span>VIEW ALL EDITIONS</span>
-            <span class="transform group-hover:translate-x-1 transition-transform">→</span>
-          </button>
         </div>
       </div>
 
-      <!-- 3-Column Editorial Product Grid -->
+      <!-- 3-Column Editorial Service & Product Grid -->
       <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-7 gap-y-10">
-        <!-- Product Cards dynamically rendered via JS -->
+        <!-- Cards dynamically rendered via JS -->
       </div>
     </section>
 
     <!-- =========================================================
-         SECTION 04: CLOSING EDITORIAL BANNER ("LET'S WRITE TOGETHER")
+         SECTION 04: CLOSING EDITORIAL BANNER ("BOOK & PRINT INSTANTLY")
     ========================================================== -->
-    <section id="journal" class="grid-border-b relative overflow-hidden">
+    <section id="contact" class="grid-border-b relative overflow-hidden">
       <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[430px]">
 
         <!-- Left Editorial CTA Block -->
         <div class="lg:col-span-6 p-6 sm:p-12 flex flex-col justify-between z-10 relative reveal-up">
           <div class="relative inline-block max-w-md">
-            <h2 class="display-mega text-[4.2rem] sm:text-[5.6rem] xl:text-[6.4rem] text-ink">
-              LET'S<br />
-              WRITE<br />
-              TOGETHER
+            <h2 class="display-mega text-[4.0rem] sm:text-[5.4rem] xl:text-[6.2rem] text-ink">
+              NEED A<br />
+              TICKET OR<br />
+              PRINT NOW?
             </h2>
 
-            <!-- Hand-drawn Editorial Curved Arrow SVG (matching reference) -->
+            <!-- Hand-drawn Editorial Curved Arrow SVG -->
             <svg
               class="hidden sm:block w-36 h-20 text-ink absolute top-8 -right-24 transform -rotate-6 pointer-events-none"
               viewBox="0 0 180 90"
@@ -648,42 +640,60 @@
           </div>
 
           <div class="mt-8 sm:mt-10">
-            <p class="text-[11px] font-semibold uppercase tracking-[0.12em] text-ink mb-1">
-              HAVE A BESPOKE STATIONERY ORDER IN MIND?
+            <p class="text-[11px] font-bold uppercase tracking-[0.12em] text-ink mb-1">
+              DIRECT HELPLINE &amp; WHATSAPP DESK: +91 97748 37504
             </p>
             <p class="text-[11px] uppercase tracking-[0.1em] text-ink/70 mb-6">
-              CUSTOM EMBOSSING, CORPORATE GIFTING & ARCHITECTURAL EDITIONS — WE'D LOVE TO HEAR FROM YOU.
+              SEND PDFs FOR XEROX/PRINTING OR TRAVEL DETAILS FOR FLIGHT &amp; TRAIN TICKETS DIRECTLY TO OUR WHATSAPP.
             </p>
 
-            <button
-              onclick="openContactModal()"
-              class="magnetic-btn inline-flex items-center justify-between gap-7 bg-ink hover:bg-crimson text-stoneBg text-[11px] font-bold uppercase tracking-[0.16em] px-7 py-4 rounded-[2px] cursor-pointer"
-            >
-              <span>CONTACT US</span>
-              <span class="text-sm leading-none">→</span>
-            </button>
+            <div class="flex flex-wrap items-center gap-3.5">
+              <a
+                href="https://wa.me/919774837504?text=Hello%20SWARIFLY%20Digital%20Center%2C%20I%20need%20help%20with%20a%20booking%20or%20printout."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="magnetic-btn inline-flex items-center justify-between gap-6 bg-crimson hover:bg-crimsonDark text-white text-[11px] font-bold uppercase tracking-[0.16em] px-6 py-4 rounded-[2px]"
+              >
+                <span>CHAT ON WHATSAPP</span>
+                <span class="text-sm leading-none">↗</span>
+              </a>
+
+              <a
+                href="tel:+919774837504"
+                class="magnetic-btn inline-flex items-center justify-between gap-5 bg-ink hover:bg-ink/85 text-stoneBg text-[11px] font-bold uppercase tracking-[0.16em] px-6 py-4 rounded-[2px]"
+              >
+                <span>CALL 9774837504</span>
+                <span class="text-sm leading-none">☎</span>
+              </a>
+
+              <button
+                onclick="openContactModal()"
+                class="inline-flex items-center gap-2 border border-ink/40 hover:border-ink px-5 py-4 text-[11px] font-mono font-bold uppercase tracking-widest text-ink cursor-pointer"
+              >
+                <span>QUICK FORM</span>
+              </button>
+            </div>
           </div>
         </div>
 
-        <!-- Right Swirling Ink Macro Photography + Scroll Parallax + Coordinates -->
+        <!-- Right Vibrant Full-Color Flight & Rail Terminal Photography + Coordinates -->
         <div class="lg:col-span-6 relative min-h-[320px] lg:min-h-full flex items-end justify-end overflow-hidden reveal-up" style="transition-delay: 140ms;">
           <img
             id="ink-parallax-img"
-            src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=1200&q=85"
-            alt="Monochrome Swirling Archival Calligraphy Ink"
-            onerror="this.src='https://placehold.co/1000x800/111111/ECEBE8?text=ARCHIVAL+INK+FLOW'"
-            class="absolute inset-0 w-full h-[115%] -top-[7%] object-cover object-center grayscale contrast-150 brightness-95 mix-blend-multiply will-change-transform"
+            src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=85"
+            alt="Full-Color Flight and Rail Travel Booking Terminal View"
+            onerror="this.src='https://placehold.co/1000x800/D81E1E/FFFFFF?text=FLIGHT+%26+RAIL+TICKETING'"
+            class="absolute inset-0 w-full h-[115%] -top-[7%] object-cover object-center contrast-105 saturate-115 will-change-transform"
           />
 
-          <!-- Subtle Gradient Edge Fade into Stone Background -->
-          <div class="hidden lg:block absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-stoneBg to-transparent"></div>
+          <div class="hidden lg:block absolute inset-y-0 left-0 w-28 bg-gradient-to-r from-stoneBg to-transparent"></div>
 
-          <!-- Technical Crosshair + Coordinates Stamp -->
+          <!-- Technical Crosshair + Direct Contact Stamp -->
           <div class="relative z-10 p-6 sm:p-10 text-right flex flex-col items-end">
             <div class="crosshair mb-4"></div>
-            <div class="bg-stoneBg/85 backdrop-blur-xs px-3 py-1.5 border border-ink/15 font-mono text-[10px] tracking-[0.16em] text-ink">
-              25.5788° N<br />
-              91.8933° E
+            <div class="bg-stoneBg/95 backdrop-blur-xs px-3.5 py-2 border border-ink/20 font-mono text-[10px] tracking-[0.14em] text-ink">
+              WHATSAPP / CALL<br />
+              +91 97748 37504
             </div>
           </div>
         </div>
@@ -692,35 +702,33 @@
     </section>
 
     <!-- =========================================================
-         FOOTER (SWARIFLY® + CUSTOM SVG MARK + SOCIAL LINKS + COPYRIGHT)
+         FOOTER (SWARIFLY® + DIRECT CALL/WHATSAPP + PRIVACY & LICENSE)
     ========================================================== -->
-    <footer class="px-5 sm:px-10 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-ink">
-      <!-- Brand Wordmark + Custom Nib & 'S' SVG -->
+    <footer class="px-5 sm:px-10 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-ink">
       <a href="#" class="brand-logo-group inline-flex items-center gap-2 text-ink">
-        <svg class="w-5 h-6 shrink-0" viewBox="0 0 36 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path class="logo-stroke" d="M18 2L32 21L26 39H10L4 21L18 2Z" stroke="#111111" stroke-width="2.2" />
-          <line class="logo-stroke" x1="18" y1="2" x2="18" y2="19" stroke="#111111" stroke-width="1.8" />
-          <circle class="logo-nib-dot transition-colors duration-300" cx="18" cy="21.5" r="2.4" fill="#111111" />
-          <path class="logo-stroke" d="M22 27H14.5V30.5H21.5V34H14" stroke="#111111" stroke-width="1.9" stroke-linecap="square" />
+        <svg class="w-6 h-6 shrink-0" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect class="logo-stroke" x="7" y="4" width="26" height="32" stroke="#111111" stroke-width="2.2" />
+          <line class="logo-stroke" x1="13" y1="12" x2="27" y2="12" stroke="#D81E1E" stroke-width="2.2" />
+          <line class="logo-stroke" x1="13" y1="19" x2="27" y2="19" stroke="#111111" stroke-width="2.2" />
+          <circle cx="26" cy="28" r="3" fill="#D81E1E" />
         </svg>
         <span class="font-display text-xl tracking-tight flex items-start">
           SWARIFLY<span class="text-[10px] font-sans font-bold ml-0.5 mt-0.5">®</span>
         </span>
       </a>
 
-      <!-- Center Social / Editorial Links -->
-      <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-8 text-[10px] font-semibold uppercase tracking-[0.16em] text-ink/80">
-        <a href="#catalog" class="hover:text-crimson transition-colors">INSTAGRAM</a>
-        <a href="#catalog" class="hover:text-crimson transition-colors">PINTEREST</a>
-        <a href="#about" class="hover:text-crimson transition-colors">BEHANCE</a>
-        <a href="#journal" class="hover:text-crimson transition-colors">JOURNAL</a>
+      <!-- Center Direct Contact & Legal Links -->
+      <div class="flex flex-wrap items-center justify-center gap-5 sm:gap-7 text-[10px] font-mono font-semibold uppercase tracking-[0.14em] text-ink/85">
+        <a href="https://wa.me/919774837504" target="_blank" rel="noopener noreferrer" class="hover:text-crimson transition-colors">WHATSAPP: 9774837504</a>
+        <a href="tel:+919774837504" class="hover:text-crimson transition-colors">CALL NOW</a>
+        <button onclick="openLegalModal('privacy')" class="hover:text-crimson transition-colors uppercase cursor-pointer">PRIVACY POLICY</button>
+        <button onclick="openLegalModal('license')" class="hover:text-crimson transition-colors uppercase cursor-pointer">MIT LICENSE</button>
       </div>
 
-      <!-- Right Rule + Copyright -->
       <div class="flex items-center gap-4">
-        <span class="hidden md:inline-block w-12 h-[1px] bg-ink/35"></span>
+        <span class="hidden xl:inline-block w-10 h-[1px] bg-ink/35"></span>
         <span class="font-mono text-[9px] uppercase tracking-[0.14em] text-ink/70">
-          © 2026 SWARIFLY. ALL RIGHTS RESERVED.
+          © 2026 SWARIFLY DIGITAL &amp; DOCUMENT CENTER.
         </span>
       </div>
     </footer>
@@ -728,48 +736,71 @@
   </div>
 
   <!-- =========================================================
-       SLIDE-OVER SHOPPING BAG DRAWER
+       FLOATING QUICK-ACTION BAR (MOBILE & DESKTOP CALL + WHATSAPP)
+  ========================================================== -->
+  <div class="fixed bottom-5 right-5 z-40 flex items-center gap-2.5">
+    <a
+      href="tel:+919774837504"
+      aria-label="Call 9774837504"
+      class="bg-ink hover:bg-crimson text-stoneBg border border-stoneBg/20 px-4 py-3 shadow-xl flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider transition-colors"
+    >
+      <span>☎</span>
+      <span class="hidden sm:inline">CALL</span>
+    </a>
+    <a
+      href="https://wa.me/919774837504?text=Hello%20SWARIFLY%20Digital%20%26%20Computers%2C%20I%20would%20like%20to%20inquire%20about%20a%20service."
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="WhatsApp 9774837504"
+      class="bg-whatsapp hover:bg-green-700 text-white px-4 py-3 shadow-xl flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider transition-colors"
+    >
+      <span>💬</span>
+      <span>WHATSAPP 9774837504</span>
+    </a>
+  </div>
+
+  <!-- =========================================================
+       SLIDE-OVER SERVICE QUOTE / BOOKING LIST DRAWER
   ========================================================== -->
   <div id="cart-overlay" onclick="toggleCart(false)" class="fixed inset-0 bg-ink/50 backdrop-blur-xs z-50 hidden transition-opacity"></div>
   <aside id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-stoneBg border-l border-ink/25 z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-between">
-    <!-- Drawer Header -->
     <div class="px-6 py-5 grid-border-b flex items-center justify-between">
       <div>
-        <span class="font-mono text-[10px] uppercase tracking-[0.16em] text-ink/60 block">SWARIFLY® ARCHIVE</span>
-        <h3 class="font-display text-2xl tracking-tight uppercase">YOUR SELECTION</h3>
+        <span class="font-mono text-[10px] uppercase tracking-[0.16em] text-ink/60 block">SWARIFLY® SERVICE DESK</span>
+        <h3 class="font-display text-2xl tracking-tight uppercase">SELECTED SERVICES</h3>
       </div>
       <button onclick="toggleCart(false)" class="w-9 h-9 border border-ink/25 flex items-center justify-center hover:bg-ink hover:text-stoneBg transition-colors cursor-pointer">
         ✕
       </button>
     </div>
 
-    <!-- Drawer Items List -->
     <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-5">
-      <!-- Cart items injected via JS -->
+      <!-- Selected services injected via JS -->
     </div>
 
-    <!-- Drawer Footer / Checkout -->
-    <div class="p-6 grid-border-t bg-stoneCard/50">
-      <div class="flex items-center justify-between text-xs font-mono uppercase tracking-wider mb-2 text-ink/70">
-        <span>SHIPPING (ARCHIVAL BOX)</span>
-        <span>COMPLIMENTARY</span>
-      </div>
-      <div class="flex items-center justify-between text-base font-bold uppercase tracking-wider mb-5">
-        <span>SUBTOTAL</span>
-        <span id="cart-subtotal" class="font-mono">$0.00</span>
+    <div class="p-6 grid-border-t bg-stoneCard/50 space-y-3">
+      <div class="flex items-center justify-between text-xs font-mono uppercase tracking-wider text-ink/75">
+        <span>DIRECT COUNTER / WHATSAPP</span>
+        <span>+91 97748 37504</span>
       </div>
       <button
-        onclick="handleCheckout()"
-        class="w-full py-4 bg-crimson hover:bg-crimsonDark text-white text-xs font-bold uppercase tracking-[0.18em] flex items-center justify-center gap-3 transition-colors cursor-pointer"
+        onclick="sendListToWhatsApp()"
+        class="w-full py-4 bg-whatsapp hover:bg-green-700 text-white text-xs font-bold uppercase tracking-[0.16em] flex items-center justify-center gap-3 transition-colors cursor-pointer"
       >
-        <span>PROCEED TO DISPATCH</span>
-        <span>→</span>
+        <span>SEND LIST TO WHATSAPP</span>
+        <span>↗</span>
       </button>
+      <a
+        href="tel:+919774837504"
+        class="w-full py-3 bg-ink hover:bg-crimson text-stoneBg text-[11px] font-mono font-bold uppercase tracking-[0.16em] flex items-center justify-center gap-2 transition-colors"
+      >
+        <span>☎ CALL COUNTER: 9774837504</span>
+      </a>
     </div>
   </aside>
 
   <!-- =========================================================
-       PRODUCT QUICK-VIEW MODAL
+       SERVICE / PRODUCT QUICK-VIEW MODAL
   ========================================================== -->
   <div id="product-modal" class="fixed inset-0 bg-ink/60 backdrop-blur-xs z-50 hidden items-center justify-center p-4">
     <div class="bg-stoneBg border border-ink/30 max-w-2xl w-full overflow-hidden shadow-2xl relative animate-modal-pop">
@@ -783,7 +814,7 @@
   </div>
 
   <!-- =========================================================
-       BESPOKE INQUIRY / CONTACT MODAL
+       QUICK SERVICE REQUEST FORM (FORWARDS DIRECTLY TO WHATSAPP)
   ========================================================== -->
   <div id="contact-modal" class="fixed inset-0 bg-ink/60 backdrop-blur-xs z-50 hidden items-center justify-center p-4">
     <div class="bg-stoneBg border border-ink/30 max-w-lg w-full p-6 sm:p-9 relative shadow-2xl animate-modal-pop">
@@ -792,228 +823,218 @@
       </button>
 
       <div class="flex items-center gap-3 mb-3">
-        <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-crimson font-semibold">ATELIER DESK</span>
+        <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-crimson font-semibold">INSTANT WHATSAPP DISPATCH</span>
         <span class="w-8 h-[1px] bg-ink/30"></span>
       </div>
-      <h3 class="display-mega text-4xl sm:text-5xl text-ink mb-3">BESPOKE & INQUIRIES</h3>
+      <h3 class="display-mega text-4xl sm:text-5xl text-ink mb-3">REQUEST SERVICE</h3>
       <p class="text-xs text-ink/75 leading-relaxed mb-6">
-        Commission custom blind-debossed cotton stationery, engraved brass desk weights, or wholesale architectural editions.
+        Fill in your requirement below to launch a pre-formatted WhatsApp message directly to <strong>+91 97748 37504</strong>.
       </p>
 
-      <form id="contact-form" onsubmit="submitContactForm(event)" class="space-y-4">
+      <form onsubmit="submitWhatsAppForm(event)" class="space-y-4">
         <div>
-          <label class="block font-mono text-[10px] uppercase tracking-widest mb-1.5">FULL NAME / STUDIO</label>
-          <input type="text" required placeholder="e.g. Elena Vance — Studio Nord" class="w-full bg-transparent border border-ink/30 px-3.5 py-2.5 text-xs focus:outline-none focus:border-crimson" />
+          <label class="block font-mono text-[10px] uppercase tracking-widest mb-1.5">YOUR NAME</label>
+          <input id="req-name" type="text" required placeholder="e.g. Rahul Sharma" class="w-full bg-transparent border border-ink/30 px-3.5 py-2.5 text-xs focus:outline-none focus:border-crimson" />
         </div>
         <div>
-          <label class="block font-mono text-[10px] uppercase tracking-widest mb-1.5">EMAIL ADDRESS</label>
-          <input type="email" required placeholder="elena@studionord.com" class="w-full bg-transparent border border-ink/30 px-3.5 py-2.5 text-xs focus:outline-none focus:border-crimson" />
-        </div>
-        <div>
-          <label class="block font-mono text-[10px] uppercase tracking-widest mb-1.5">COMMISSION TYPE</label>
-          <select id="contact-topic" class="w-full bg-stoneBg border border-ink/30 px-3.5 py-2.5 text-xs focus:outline-none focus:border-crimson">
-            <option value="Bespoke Monogramming">Bespoke Monogramming & Embossing</option>
-            <option value="Custom Fountain Nib">Custom Fountain Pen Nib Grind</option>
-            <option value="Architectural Corporate Edition">Architectural Corporate Edition</option>
-            <option value="General Inquiry">General Catalog Inquiry</option>
+          <label class="block font-mono text-[10px] uppercase tracking-widest mb-1.5">SERVICE REQUIRED</label>
+          <select id="req-service" class="w-full bg-stoneBg border border-ink/30 px-3.5 py-2.5 text-xs focus:outline-none focus:border-crimson">
+            <option value="Flight / Train (IRCTC) / Bus Ticket Booking">Flight / Train (IRCTC) / Bus Ticket Booking</option>
+            <option value="High-Speed Xerox, Color Laser Print & Lamination">High-Speed Xerox, Color Laser Print &amp; Lamination</option>
+            <option value="PAN Card, Passport Seva & Aadhaar Online Portal">PAN Card, Passport Seva &amp; Aadhaar Online Portal</option>
+            <option value="Passport Size Photos, PVC Smart Card & Spiral Binding">Passport Size Photos, PVC Smart Card &amp; Spiral Binding</option>
+            <option value="Office Stationery & A4 Paper Supplies">Office Stationery &amp; A4 Paper Supplies</option>
           </select>
         </div>
         <div>
-          <label class="block font-mono text-[10px] uppercase tracking-widest mb-1.5">PROJECT BRIEF</label>
-          <textarea rows="3" required placeholder="Specify paper weight, quantity, or finish..." class="w-full bg-transparent border border-ink/30 px-3.5 py-2.5 text-xs focus:outline-none focus:border-crimson"></textarea>
+          <label class="block font-mono text-[10px] uppercase tracking-widest mb-1.5">DETAILS (TRAVEL DATES, PAGES, OR DOCUMENT TYPE)</label>
+          <textarea id="req-notes" rows="3" required placeholder="e.g. Need 2 IRCTC train tickets for tomorrow, or 40 pages spiral print..." class="w-full bg-transparent border border-ink/30 px-3.5 py-2.5 text-xs focus:outline-none focus:border-crimson"></textarea>
         </div>
-        <button type="submit" class="w-full py-3.5 bg-crimson hover:bg-crimsonDark text-white text-[11px] font-bold uppercase tracking-[0.18em] transition-colors cursor-pointer">
-          DISPATCH BRIEF →
+        <button type="submit" class="w-full py-3.5 bg-whatsapp hover:bg-green-700 text-white text-[11px] font-bold uppercase tracking-[0.18em] transition-colors cursor-pointer">
+          OPEN IN WHATSAPP (9774837504) ↗
         </button>
       </form>
     </div>
   </div>
 
   <!-- =========================================================
-       BRAND MANIFESTO / STORY MODAL ("LEARN MORE")
+       PRIVACY POLICY & MIT LICENSE MODAL
   ========================================================== -->
-  <div id="story-modal" class="fixed inset-0 bg-ink/60 backdrop-blur-xs z-50 hidden items-center justify-center p-4">
+  <div id="legal-modal" class="fixed inset-0 bg-ink/60 backdrop-blur-xs z-50 hidden items-center justify-center p-4">
     <div class="bg-stoneBg border border-ink/30 max-w-xl w-full p-6 sm:p-10 relative shadow-2xl animate-modal-pop">
-      <button onclick="closeStoryModal()" class="absolute top-5 right-5 w-9 h-9 border border-ink/25 flex items-center justify-center hover:bg-ink hover:text-stoneBg transition-colors cursor-pointer">
+      <button onclick="closeLegalModal()" class="absolute top-5 right-5 w-9 h-9 border border-ink/25 flex items-center justify-center hover:bg-ink hover:text-stoneBg transition-colors cursor-pointer">
         ✕
       </button>
-      <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-crimson block mb-2">SWARIFLY® MANIFESTO — EST. 2018</span>
-      <h3 class="display-mega text-4xl sm:text-5xl text-ink mb-5">ARCHITECTURE FOR THOUGHT</h3>
-      <div class="space-y-4 text-xs sm:text-[13px] leading-relaxed text-ink/85">
-        <p>
-          Founded in 2018, <strong>SWARIFLY®</strong> treats everyday stationery with the rigor of Swiss industrial architecture. Every notebook is Smyth-sewn to lie completely flat at 180 degrees, milled from acid-free 120gsm–300gsm cotton rag that resists fountain pen feathering.
-        </p>
-        <p>
-          Our writing instruments are turned from solid aerospace aluminum, raw C360 brass, and matte-anodized titanium—balanced to the millimeter for fatigue-free drafting and long-form writing.
-        </p>
-      </div>
-      <div class="mt-7 pt-5 grid-border-t flex items-center justify-between">
-        <span class="font-mono text-[10px] uppercase tracking-widest text-ink/60">EDITION 04 / ARCHIVAL GRADE</span>
-        <button onclick="closeStoryModal()" class="px-5 py-2.5 bg-ink text-stoneBg text-[10px] font-bold uppercase tracking-[0.16em] hover:bg-crimson transition-colors cursor-pointer">
-          RETURN TO ARCHIVE
-        </button>
-      </div>
+      <span id="legal-tag" class="font-mono text-[10px] uppercase tracking-[0.18em] text-crimson block mb-2">LEGAL</span>
+      <h3 id="legal-title" class="display-mega text-4xl text-ink mb-4">PRIVACY POLICY</h3>
+      <div id="legal-body" class="space-y-3 text-xs leading-relaxed text-ink/85"></div>
     </div>
   </div>
 
   <!-- =========================================================
-       CUSTOM TOAST NOTIFICATION BANNER (NO ALERT())
+       TOAST NOTIFICATION BANNER
   ========================================================== -->
-  <div id="toast-notification" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+  <div id="toast-notification" class="fixed bottom-20 right-5 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
     <div class="bg-ink text-stoneBg border-l-4 border-crimson px-5 py-3.5 shadow-xl flex items-center gap-3">
       <span class="w-2 h-2 rounded-full bg-crimson"></span>
-      <span id="toast-message" class="font-mono text-[11px] uppercase tracking-wider">ITEM ADDED TO BAG</span>
+      <span id="toast-message" class="font-mono text-[11px] uppercase tracking-wider">ADDED TO SERVICE LIST</span>
     </div>
   </div>
 
   <!-- =========================================================
-       APPLICATION LOGIC & CURATED STATIONERY CATALOG
+       APPLICATION LOGIC, CURATED SHOP DATA & WHATSAPP INTEGRATION
   ========================================================== -->
   <script>
-    // Curated Luxury Stationery Catalog (Matching Reference Card Aesthetics)
-    const PRODUCTS = [
+    const PHONE_DISPLAY = '9774837504';
+    const WHATSAPP_NUMBER = '919774837504';
+
+    // Curated Digital Center, Ticketing, Xerox/Print & Stationery Catalog (Zero Laptop/Computer Repair)
+    const SERVICES = [
       {
         id: '001',
-        name: 'OBSIDIAN NIB',
-        category: 'pens',
-        categoryLabel: 'FOUNTAIN PEN',
-        price: 145,
-        specs: '14K Ruthenium-Plated Nib • Matte Anodized Brass Barrel • Converter Included',
-        description: 'Precision-turned matte black architectural fountain pen engineered with a low center of gravity and ultra-responsive Japanese fine nib.',
-        image: 'https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=900&q=85',
+        name: 'FLIGHT & TRAIN TICKETS',
+        category: 'ticketing',
+        categoryLabel: 'IRCTC • AIRLINES • BUS',
+        badgeText: 'INSTANT PNR',
+        specs: 'Authorized IRCTC Rail Booking • Domestic & International Flights • Volvo Bus Tickets',
+        description: 'Fast, reliable flight, train (Tatkal & general), and intercity bus reservations with instant WhatsApp e-ticket PDF delivery and laser boarding pass printouts.',
+        image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=900&q=85',
         accentRed: true
       },
       {
         id: '002',
-        name: 'MONOLITH A5',
-        category: 'paper',
-        categoryLabel: 'COTTON NOTEBOOK',
-        price: 38,
-        specs: '192 Pages • 120gsm Japanese Cotton Paper • Lay-Flat Smyth-Sewn Binding',
-        description: 'Exposed-spine architectural notebook with subtle 5mm dot-grid ruling and raw charcoal linen boards.',
-        image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=900&q=85',
-        accentRed: false
+        name: 'XEROX, PRINT & LAMINATION',
+        category: 'print',
+        categoryLabel: 'LASER PRINT • PHOTOCOPY',
+        badgeText: 'BULK & COLOR',
+        specs: 'High-Speed B&W Xerox • HD Color Laser Printing • Document Scanning • Thermal Lamination',
+        description: 'Crisp high-volume photocopying, duplex laser printing, and waterproof thermal lamination. Send your PDF files directly on WhatsApp for zero-wait pickup.',
+        image: 'https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=900&q=85',
+        accentRed: true
       },
       {
         id: '003',
-        name: 'AXIS RULER',
-        category: 'desk',
-        categoryLabel: 'BRASS INSTRUMENT',
-        price: 62,
-        specs: '200mm Solid C360 Brass • Laser-Etched Metric & Imperial Scale • Beveled Ink Edge',
-        description: 'Heavyweight drafting scale with an elevated anti-smudge bevel designed specifically for technical fountain pen linework.',
-        image: 'https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=900&q=85',
+        name: 'ONLINE CITIZEN PORTAL',
+        category: 'online',
+        categoryLabel: 'PAN • PASSPORT • AADHAAR',
+        badgeText: 'E-SERVICES',
+        specs: 'New PAN & Correction • Passport Seva • Aadhaar Updates • Utility Bill Pay & Money Transfer',
+        description: 'Hassle-free online applications for PAN cards, passport appointments, Aadhaar demographic updates, exam/scholarship forms, electricity bills, and instant money transfer.',
+        image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=85',
         accentRed: true
       },
       {
         id: '004',
-        name: 'CRIMSON VERMILION',
-        category: 'ink',
-        categoryLabel: 'ARCHIVAL INK',
-        price: 28,
-        specs: '50ml Heavy Flint Glass Bottle • Pigment-Rich Archival Formula • pH Neutral',
-        description: 'SWARIFLY signature deep vermilion red bottled ink formulated for crisp shading, zero feathering, and century-grade permanence.',
-        image: 'https://images.unsplash.com/photo-1568205612837-017257d2310a?auto=format&fit=crop&w=900&q=85',
-        accentRed: true
+        name: 'PHOTO STUDIO & PVC CARDS',
+        category: 'studio',
+        categoryLabel: 'PASSPORT PHOTO • ID CARDS',
+        badgeText: '5-MIN PRINT',
+        specs: 'Studio Passport & Visa Photos • Heavy PVC Smart ID Cards • Spiral & Project Binding',
+        description: 'Studio-lit passport and visa photographs printed in 5 minutes on glossy photo paper, durable waterproof PVC smart card printing, and spiral report binding.',
+        image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=900&q=85',
+        accentRed: false
       },
       {
         id: '005',
-        name: 'DATUM STAND',
-        category: 'desk',
-        categoryLabel: 'DESK ARCHITECTURE',
-        price: 85,
-        specs: 'CNC-Milled Anodized Aluminum • Silicone Micro-Grip Base • 72° Pen Angle',
-        description: 'Monolithic weighted desk plinth crafted to hold your primary writing instrument upright like a sculptural spire.',
-        image: 'https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?auto=format&fit=crop&w=900&q=85',
+        name: 'OFFICE STATIONERY & PAPER',
+        category: 'stationery',
+        categoryLabel: 'A4 REAMS • FILES • PENS',
+        badgeText: 'IN STOCK',
+        specs: '75/80 GSM A4 Copier Paper Reams • Archival Box Files • Gel & Ball Pens • Envelopes',
+        description: 'Complete everyday office and student stationery supplies including A4 paper bundles, lever-arch files, spiral notebooks, markers, staplers, and kraft envelopes.',
+        image: 'https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=900&q=85',
         accentRed: false
       },
       {
         id: '006',
-        name: 'SEAL & STAMP',
-        category: 'ink',
-        categoryLabel: 'BESPOKE WAX KIT',
-        price: 54,
-        specs: 'Engraved Brass Die • 3 Crimson Sealing Wax Sticks • Rosewood Handle',
-        description: 'Complete correspondence sealing ensemble featuring custom monogram die engraving and flexible crimson archival wax.',
-        image: 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=900&q=85',
+        name: 'HIGH-DPI SCAN & PDF DESK',
+        category: 'print',
+        categoryLabel: 'ARCHIVE SCAN • EMAIL / WA',
+        badgeText: 'INSTANT PDF',
+        specs: '1200 DPI Color Document Scanning • PDF Merge, Split & Compress • Instant Email/WhatsApp',
+        description: 'High-resolution multi-page document and certificate scanning converted to clean, properly sized PDFs and delivered straight to your WhatsApp or email inbox.',
+        image: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=900&q=85',
         accentRed: false
       }
     ];
 
-    // Pre-populated Cart State for Immediate Interactivity
-    let cart = [
+    let serviceList = [
       { id: '001', qty: 1 },
       { id: '002', qty: 1 }
     ];
-
     let activeFilter = 'all';
 
-    // Render Product Grid matching Reference Section 03 Card Layout
+    function getWhatsAppLink(message) {
+      return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    }
+
+    // Render Service & Stationery Cards in Full Color
     function renderProducts() {
       const grid = document.getElementById('product-grid');
       const filtered = activeFilter === 'all'
-        ? PRODUCTS
-        : PRODUCTS.filter(p => p.category === activeFilter || (activeFilter === 'desk' && p.category === 'ink'));
+        ? SERVICES
+        : SERVICES.filter(item => item.category === activeFilter);
 
-      grid.innerHTML = filtered.map((product, index) => `
-        <article class="group flex flex-col reveal-up is-visible" style="transition-delay: ${index * 75}ms;">
-          <!-- High-Contrast Monochrome Product Frame with Ink-Border Highlight -->
+      grid.innerHTML = filtered.map((item, index) => {
+        const directWaUrl = getWhatsAppLink(`Hello SWARIFLY Digital Center, I am interested in: ${item.name} (${item.categoryLabel}). Please share details.`);
+        return `
+        <article class="group flex flex-col reveal-up is-visible" style="transition-delay: ${index * 70}ms;">
+          <!-- Vibrant Full-Color Service Image -->
           <div
-            onclick="openProductModal('${product.id}')"
-            class="relative aspect-[4/3] w-full bg-ink overflow-hidden cursor-pointer mb-4 border border-transparent group-hover:border-ink transition-colors duration-300"
+            onclick="openProductModal('${item.id}')"
+            class="relative aspect-[4/3] w-full bg-stoneCard overflow-hidden cursor-pointer mb-4 border border-ink/15 group-hover:border-ink transition-colors duration-300"
           >
             <img
-              src="${product.image}"
-              alt="${product.name} — ${product.categoryLabel}"
-              onerror="this.src='https://placehold.co/800x600/141414/ECEBE8?text=${encodeURIComponent(product.name)}'"
+              src="${item.image}"
+              alt="${item.name} — ${item.categoryLabel}"
+              onerror="this.src='https://placehold.co/800x600/D81E1E/FFFFFF?text=${encodeURIComponent(item.name)}'"
               class="w-full h-full object-cover editorial-photo"
             />
-            <!-- Subtle Crimson Editorial Accent Slash on Featured Items -->
-            ${product.accentRed ? `<span class="absolute top-3 right-3 w-2.5 h-2.5 rounded-full bg-crimson shadow"></span>` : ''}
-            <div class="absolute inset-0 bg-ink/0 group-hover:bg-ink/15 transition-colors"></div>
+            <span class="absolute top-3 left-3 bg-ink/90 text-stoneBg font-mono text-[9px] uppercase tracking-widest px-2.5 py-1">
+              ${item.badgeText}
+            </span>
+            ${item.accentRed ? `<span class="absolute top-3 right-3 w-2.5 h-2.5 rounded-full bg-crimson shadow"></span>` : ''}
           </div>
 
-          <!-- Reference Card Metadata Row: Index + Title + Subtitle + Circular Arrow Button -->
-          <div class="flex items-end justify-between pt-1 pb-3 grid-border-b group-hover:border-ink transition-colors duration-300">
+          <!-- Reference Card Metadata Row -->
+          <div class="flex items-end justify-between pt-1 pb-3 grid-border-b group-hover:border-ink transition-colors duration-300 gap-2">
             <div>
               <div class="flex items-center gap-2.5 mb-1">
-                <span class="font-mono text-[11px] font-medium text-ink/75">${product.id}</span>
-                <span class="font-mono text-[11px] font-semibold text-crimson">$${product.price}</span>
+                <span class="font-mono text-[11px] font-medium text-ink/75">${item.id}</span>
+                <span class="font-mono text-[10px] font-bold text-crimson uppercase">${item.categoryLabel}</span>
               </div>
               <h3
-                onclick="openProductModal('${product.id}')"
+                onclick="openProductModal('${item.id}')"
                 class="text-sm sm:text-base font-extrabold uppercase tracking-[0.04em] text-ink group-hover:text-crimson transition-colors cursor-pointer"
               >
-                ${product.name}
+                ${item.name}
               </h3>
-              <p class="text-[10px] font-medium uppercase tracking-[0.14em] text-ink/65 mt-0.5">
-                ${product.categoryLabel}
-              </p>
             </div>
 
-            <!-- Circular Arrow Trigger Button (Exact Reference Detail) -->
-            <div class="flex items-center gap-2">
+            <!-- Action Buttons: Add to List + Direct WhatsApp -->
+            <div class="flex items-center gap-1.5 shrink-0">
               <button
-                onclick="addToCart('${product.id}')"
-                title="Quick Add to Bag"
-                class="px-2.5 py-1.5 text-[9px] font-mono uppercase tracking-widest border border-ink/25 hover:bg-ink hover:text-stoneBg transition-colors cursor-pointer"
+                onclick="addToCart('${item.id}')"
+                title="Add to Inquiry List"
+                class="px-2.5 py-1.5 text-[9px] font-mono font-bold uppercase tracking-widest border border-ink/30 hover:bg-ink hover:text-stoneBg transition-colors cursor-pointer"
               >
-                + BAG
+                + LIST
               </button>
-              <button
-                onclick="openProductModal('${product.id}')"
-                aria-label="Inspect ${product.name}"
-                class="w-9 h-9 rounded-full border border-ink/40 group-hover:border-crimson group-hover:bg-crimson group-hover:text-white flex items-center justify-center text-xs transition-all duration-200 cursor-pointer"
+              <a
+                href="${directWaUrl}"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Book ${item.name} on WhatsApp"
+                class="w-9 h-9 rounded-full border border-ink/40 hover:border-whatsapp hover:bg-whatsapp hover:text-white flex items-center justify-center text-xs font-bold transition-all duration-200"
               >
-                →
-              </button>
+                ↗
+              </a>
             </div>
           </div>
         </article>
-      `).join('');
+      `}).join('');
     }
 
-    // Filter Controls
     function setFilter(category) {
       activeFilter = category;
       document.querySelectorAll('.filter-btn').forEach(btn => {
@@ -1030,62 +1051,48 @@
 
     function filterAndScroll(category) {
       setFilter(category);
-      document.getElementById('catalog').scrollIntoView({ behavior: 'smooth' });
+      document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
     }
 
-    // Shopping Bag Logic
+    // Service List Drawer Logic
     function updateCartUI() {
       const container = document.getElementById('cart-items-container');
       const badge = document.getElementById('nav-cart-badge');
-      const subtotalEl = document.getElementById('cart-subtotal');
-
-      const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+      const totalCount = serviceList.reduce((sum, item) => sum + item.qty, 0);
       badge.textContent = totalCount;
 
-      if (cart.length === 0) {
+      if (serviceList.length === 0) {
         container.innerHTML = `
           <div class="h-full flex flex-col items-center justify-center text-center py-12">
-            <p class="font-display text-2xl uppercase text-ink/40 mb-2">ARCHIVE BAG EMPTY</p>
-            <p class="text-xs text-ink/60 max-w-xs mb-6">Explore our numbered stationery editions to curate your desk.</p>
+            <p class="font-display text-2xl uppercase text-ink/40 mb-2">SERVICE LIST EMPTY</p>
+            <p class="text-xs text-ink/60 max-w-xs mb-6">Add Xerox, ticket booking, or computer services to send a combined request on WhatsApp.</p>
             <button onclick="toggleCart(false)" class="px-5 py-2.5 bg-ink text-stoneBg text-[10px] font-bold uppercase tracking-widest cursor-pointer">
-              BROWSE CATALOG
+              BROWSE SERVICES
             </button>
           </div>
         `;
-        subtotalEl.textContent = '$0.00';
         return;
       }
 
-      let subtotal = 0;
-      container.innerHTML = cart.map(item => {
-        const product = PRODUCTS.find(p => p.id === item.id);
-        if (!product) return '';
-        subtotal += product.price * item.qty;
-
+      container.innerHTML = serviceList.map(item => {
+        const svc = SERVICES.find(s => s.id === item.id);
+        if (!svc) return '';
         return `
           <div class="flex gap-4 pb-5 grid-border-b">
-            <img
-              src="${product.image}"
-              alt="${product.name}"
-              class="w-20 h-20 object-cover editorial-photo bg-ink shrink-0"
-            />
+            <img src="${svc.image}" alt="${svc.name}" class="w-20 h-20 object-cover editorial-photo bg-stoneCard shrink-0 border border-ink/15" />
             <div class="flex-1 flex flex-col justify-between">
-              <div class="flex items-start justify-between gap-2">
-                <div>
-                  <span class="font-mono text-[10px] text-ink/60">${product.id}</span>
-                  <h4 class="text-xs font-extrabold uppercase tracking-wider">${product.name}</h4>
-                  <p class="text-[10px] uppercase tracking-widest text-ink/60">${product.categoryLabel}</p>
-                </div>
-                <span class="font-mono text-xs font-semibold">$${product.price * item.qty}</span>
+              <div>
+                <span class="font-mono text-[10px] text-crimson font-bold">${svc.id}</span>
+                <h4 class="text-xs font-extrabold uppercase tracking-wider">${svc.name}</h4>
+                <p class="text-[10px] uppercase tracking-widest text-ink/60">${svc.categoryLabel}</p>
               </div>
-
               <div class="flex items-center justify-between mt-3">
                 <div class="inline-flex items-center border border-ink/25">
-                  <button onclick="changeQty('${product.id}', -1)" class="w-7 h-7 text-xs hover:bg-ink hover:text-stoneBg transition-colors cursor-pointer">−</button>
+                  <button onclick="changeQty('${svc.id}', -1)" class="w-7 h-7 text-xs hover:bg-ink hover:text-stoneBg transition-colors cursor-pointer">−</button>
                   <span class="px-3 font-mono text-xs">${item.qty}</span>
-                  <button onclick="changeQty('${product.id}', 1)" class="w-7 h-7 text-xs hover:bg-ink hover:text-stoneBg transition-colors cursor-pointer">+</button>
+                  <button onclick="changeQty('${svc.id}', 1)" class="w-7 h-7 text-xs hover:bg-ink hover:text-stoneBg transition-colors cursor-pointer">+</button>
                 </div>
-                <button onclick="removeFromCart('${product.id}')" class="text-[10px] font-mono uppercase tracking-wider text-ink/50 hover:text-crimson cursor-pointer">
+                <button onclick="removeFromCart('${svc.id}')" class="text-[10px] font-mono uppercase tracking-wider text-ink/50 hover:text-crimson cursor-pointer">
                   REMOVE
                 </button>
               </div>
@@ -1093,34 +1100,30 @@
           </div>
         `;
       }).join('');
-
-      subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
     }
 
     function addToCart(id) {
-      const existing = cart.find(item => item.id === id);
+      const existing = serviceList.find(item => item.id === id);
       if (existing) {
         existing.qty += 1;
       } else {
-        cart.push({ id, qty: 1 });
+        serviceList.push({ id, qty: 1 });
       }
-      const product = PRODUCTS.find(p => p.id === id);
+      const svc = SERVICES.find(s => s.id === id);
       updateCartUI();
-      showToast(`ADDED ${product.name} (${product.id}) TO BAG`);
+      showToast(`ADDED ${svc.name} TO WHATSAPP LIST`);
     }
 
     function changeQty(id, delta) {
-      const idx = cart.findIndex(item => item.id === id);
+      const idx = serviceList.findIndex(item => item.id === id);
       if (idx === -1) return;
-      cart[idx].qty += delta;
-      if (cart[idx].qty <= 0) {
-        cart.splice(idx, 1);
-      }
+      serviceList[idx].qty += delta;
+      if (serviceList[idx].qty <= 0) serviceList.splice(idx, 1);
       updateCartUI();
     }
 
     function removeFromCart(id) {
-      cart = cart.filter(item => item.id !== id);
+      serviceList = serviceList.filter(item => item.id !== id);
       updateCartUI();
     }
 
@@ -1136,55 +1139,68 @@
       }
     }
 
-    function handleCheckout() {
-      if (cart.length === 0) {
-        showToast('YOUR BAG IS CURRENTLY EMPTY');
+    function sendListToWhatsApp() {
+      if (serviceList.length === 0) {
+        window.open(getWhatsAppLink('Hello SWARIFLY Digital & Computers, I need assistance with your services.'), '_blank');
         return;
       }
-      cart = [];
-      updateCartUI();
-      toggleCart(false);
-      showToast('ORDER DISPATCHED TO SWARIFLY ATELIER ✓');
+      const lines = serviceList.map(item => {
+        const svc = SERVICES.find(s => s.id === item.id);
+        return `• ${svc.name} (Qty: ${item.qty})`;
+      });
+      const text = `Hello SWARIFLY Digital & Computers,\nI would like to inquire/book the following services:\n\n${lines.join('\n')}\n\nPlease confirm availability.`;
+      window.open(getWhatsAppLink(text), '_blank');
     }
 
-    // Product Quick-View Modal
+    // Service Quick-Inspect Modal
     function openProductModal(id) {
-      const product = PRODUCTS.find(p => p.id === id);
-      if (!product) return;
+      const svc = SERVICES.find(s => s.id === id);
+      if (!svc) return;
 
       const modal = document.getElementById('product-modal');
       const content = document.getElementById('product-modal-content');
+      const directWa = getWhatsAppLink(`Hello SWARIFLY Digital Center, I want to book/inquire about: ${svc.name} (${svc.categoryLabel}).`);
 
       content.innerHTML = `
-        <div class="bg-ink aspect-square md:aspect-auto md:h-full overflow-hidden">
-          <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover editorial-photo" />
+        <div class="bg-stoneCard aspect-square md:aspect-auto md:h-full overflow-hidden">
+          <img src="${svc.image}" alt="${svc.name}" class="w-full h-full object-cover editorial-photo" />
         </div>
         <div class="p-6 sm:p-8 flex flex-col justify-between">
           <div>
             <div class="flex items-center gap-3 mb-2">
-              <span class="font-mono text-xs text-crimson font-semibold">EDITION ${product.id}</span>
+              <span class="font-mono text-xs text-crimson font-semibold">SERVICE ${svc.id}</span>
               <span class="w-8 h-[1px] bg-ink/30"></span>
             </div>
-            <h3 class="display-mega text-4xl text-ink mb-1">${product.name}</h3>
-            <p class="text-[10px] font-mono uppercase tracking-[0.16em] text-ink/60 mb-5">${product.categoryLabel} — $${product.price}</p>
+            <h3 class="display-mega text-3xl sm:text-4xl text-ink mb-1">${svc.name}</h3>
+            <p class="text-[10px] font-mono uppercase tracking-[0.16em] text-ink/60 mb-4">${svc.categoryLabel}</p>
 
             <p class="text-xs leading-relaxed text-ink/85 mb-5">
-              ${product.description}
+              ${svc.description}
             </p>
 
             <div class="p-3.5 bg-stoneCard border border-ink/15 mb-6">
-              <span class="block font-mono text-[9px] uppercase tracking-widest text-ink/60 mb-1">ARCHITECTURAL SPECIFICATIONS</span>
-              <p class="text-[11px] font-medium text-ink">${product.specs}</p>
+              <span class="block font-mono text-[9px] uppercase tracking-widest text-ink/60 mb-1">INCLUDED FACILITIES</span>
+              <p class="text-[11px] font-medium text-ink">${svc.specs}</p>
             </div>
           </div>
 
-          <button
-            onclick="addToCart('${product.id}'); closeProductModal(); toggleCart(true);"
-            class="w-full py-3.5 bg-crimson hover:bg-crimsonDark text-white text-[11px] font-bold uppercase tracking-[0.16em] flex items-center justify-center gap-3 transition-colors cursor-pointer"
-          >
-            <span>ADD TO BAG — $${product.price}</span>
-            <span>→</span>
-          </button>
+          <div class="space-y-2.5">
+            <a
+              href="${directWa}"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-full py-3.5 bg-whatsapp hover:bg-green-700 text-white text-[11px] font-bold uppercase tracking-[0.16em] flex items-center justify-center gap-2 transition-colors"
+            >
+              <span>BOOK ON WHATSAPP (9774837504)</span>
+              <span>↗</span>
+            </a>
+            <a
+              href="tel:+919774837504"
+              class="w-full py-3 bg-ink hover:bg-crimson text-stoneBg text-[11px] font-mono font-bold uppercase tracking-[0.16em] flex items-center justify-center gap-2 transition-colors"
+            >
+              <span>☎ CALL DIRECTLY: 9774837504</span>
+            </a>
+          </div>
         </div>
       `;
 
@@ -1198,13 +1214,9 @@
       modal.classList.remove('flex');
     }
 
-    // Contact / Bespoke Modal
-    function openContactModal(topic) {
+    // Contact Modal -> Direct WhatsApp Launch
+    function openContactModal() {
       const modal = document.getElementById('contact-modal');
-      if (topic) {
-        const select = document.getElementById('contact-topic');
-        if (select) select.value = topic;
-      }
       modal.classList.remove('hidden');
       modal.classList.add('flex');
     }
@@ -1215,54 +1227,73 @@
       modal.classList.remove('flex');
     }
 
-    function submitContactForm(e) {
+    function submitWhatsAppForm(e) {
       e.preventDefault();
-      e.target.reset();
+      const name = document.getElementById('req-name').value.trim();
+      const service = document.getElementById('req-service').value;
+      const notes = document.getElementById('req-notes').value.trim();
+
+      const msg = `Hello SWARIFLY Digital & Computers,\nName: ${name}\nService: ${service}\nDetails: ${notes}`;
       closeContactModal();
-      showToast('BESPOKE INQUIRY RECEIVED BY SWARIFLY STUDIO');
+      window.open(getWhatsAppLink(msg), '_blank');
     }
 
-    // Story / Manifesto Modal
-    function openStoryModal() {
-      const modal = document.getElementById('story-modal');
+    // Privacy Policy & MIT License Modal
+    function openLegalModal(type) {
+      const modal = document.getElementById('legal-modal');
+      const tag = document.getElementById('legal-tag');
+      const title = document.getElementById('legal-title');
+      const body = document.getElementById('legal-body');
+
+      if (type === 'privacy') {
+        tag.textContent = 'CUSTOMER DATA & DOCUMENT PRIVACY';
+        title.textContent = 'PRIVACY POLICY';
+        body.innerHTML = `
+          <p><strong>Effective Date:</strong> January 1, 2026</p>
+          <p><strong>SWARIFLY® Digital &amp; Document Center</strong> treats all customer documents shared for Xerox, printing, scanning, ticket booking, and online portal applications with strict confidentiality.</p>
+          <p>Files sent via WhatsApp (+91 97748 37504) for printing and form submissions are permanently deleted immediately upon order completion. We never share or sell personal details or travel itineraries.</p>
+        `;
+      } else {
+        tag.textContent = 'OPEN SOURCE LICENSE';
+        title.textContent = 'MIT LICENSE';
+        body.innerHTML = `
+          <p><strong>Copyright (c) 2026 SWARIFLY® Digital &amp; Document Center</strong></p>
+          <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files, to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software.</p>
+        `;
+      }
+
       modal.classList.remove('hidden');
       modal.classList.add('flex');
     }
 
-    function closeStoryModal() {
-      const modal = document.getElementById('story-modal');
+    function closeLegalModal() {
+      const modal = document.getElementById('legal-modal');
       modal.classList.add('hidden');
       modal.classList.remove('flex');
     }
 
-    // Mobile Menu Toggle
     function toggleMobileMenu() {
       document.getElementById('mobile-menu').classList.toggle('hidden');
     }
 
-    // Toast Feedback Helper
     let toastTimer;
     function showToast(message) {
       const toast = document.getElementById('toast-notification');
-      const msgEl = document.getElementById('toast-message');
-      msgEl.textContent = message;
+      document.getElementById('toast-message').textContent = message;
       toast.classList.remove('translate-y-24', 'opacity-0');
       clearTimeout(toastTimer);
       toastTimer = setTimeout(() => {
         toast.classList.add('translate-y-24', 'opacity-0');
-      }, 3000);
+      }, 2800);
     }
 
-    // 1. Preloader Curtain Dismissal
     function initPreloader() {
       const preloader = document.getElementById('swarifly-preloader');
-      if (!preloader) return;
-      setTimeout(() => {
-        preloader.classList.add('curtain-up');
-      }, 1200);
+      if (preloader) {
+        setTimeout(() => preloader.classList.add('curtain-up'), 1100);
+      }
     }
 
-    // 2. IntersectionObserver Scroll-Triggered Staggered Reveals
     function initScrollReveals() {
       const observer = new IntersectionObserver(
         (entries) => {
@@ -1275,15 +1306,12 @@
         },
         { threshold: 0.12 }
       );
-
       document.querySelectorAll('.reveal-up').forEach((el) => observer.observe(el));
     }
 
-    // 3. Subtle Scroll Parallax for Crimson Hero Circle & Swirling Ink Art
     function initParallax() {
       const crimsonOrb = document.getElementById('hero-crimson-orb');
-      const inkArt = document.getElementById('ink-parallax-img');
-
+      const transitArt = document.getElementById('ink-parallax-img');
       window.addEventListener(
         'scroll',
         () => {
@@ -1291,23 +1319,21 @@
           if (crimsonOrb && scrollY < 900) {
             crimsonOrb.style.transform = `translateY(${scrollY * 0.08}px)`;
           }
-          if (inkArt) {
-            const rect = inkArt.parentElement.getBoundingClientRect();
-            const offset = rect.top * -0.08;
-            inkArt.style.transform = `translateY(${offset}px)`;
+          if (transitArt) {
+            const rect = transitArt.parentElement.getBoundingClientRect();
+            transitArt.style.transform = `translateY(${rect.top * -0.07}px)`;
           }
         },
         { passive: true }
       );
     }
 
-    // 4. Magnetic Hover Effect on Primary CTA Buttons
     function initMagneticButtons() {
       document.querySelectorAll('.magnetic-btn').forEach((btn) => {
         btn.addEventListener('mousemove', (e) => {
           const rect = btn.getBoundingClientRect();
-          const x = (e.clientX - rect.left - rect.width / 2) * 0.22;
-          const y = (e.clientY - rect.top - rect.height / 2) * 0.22;
+          const x = (e.clientX - rect.left - rect.width / 2) * 0.2;
+          const y = (e.clientY - rect.top - rect.height / 2) * 0.2;
           btn.style.transform = `translate(${x}px, ${y}px)`;
         });
         btn.addEventListener('mouseleave', () => {
@@ -1316,7 +1342,6 @@
       });
     }
 
-    // Initialize Page
     window.addEventListener('DOMContentLoaded', () => {
       renderProducts();
       updateCartUI();
