@@ -127,6 +127,94 @@
       height: 15px;
     }
 
+    /* =========================================================
+       CUSTOM SVG LOGO, PRELOADER & MOTION SYSTEM
+    ========================================================== */
+    /* Preloader Curtain */
+    #swarifly-preloader {
+      transition: transform 0.85s cubic-bezier(0.76, 0, 0.24, 1), opacity 0.5s ease;
+    }
+    #swarifly-preloader.curtain-up {
+      transform: translateY(-100%);
+      pointer-events: none;
+    }
+
+    /* SVG Nib & Monogram Stroke Draw */
+    .nib-draw-path {
+      stroke-dasharray: 260;
+      stroke-dashoffset: 260;
+      animation: drawNibStroke 1.05s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    @keyframes drawNibStroke {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    /* Header & Footer Logo Hover Nib Stroke Draw */
+    .brand-logo-group .logo-stroke {
+      stroke-dasharray: 120;
+      stroke-dashoffset: 0;
+      transition: stroke-dashoffset 0.6s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.3s ease;
+    }
+    .brand-logo-group:hover .logo-stroke {
+      animation: logoReDraw 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      stroke: #D81E1E;
+    }
+    .brand-logo-group:hover .logo-nib-dot {
+      fill: #D81E1E;
+    }
+    @keyframes logoReDraw {
+      0% { stroke-dashoffset: 120; }
+      100% { stroke-dashoffset: 0; }
+    }
+
+    /* Scroll-Triggered Staggered Reveals */
+    .reveal-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-up.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Infinite Editorial Marquee Ticker */
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      display: flex;
+      width: max-content;
+      animation: marqueeScroll 32s linear infinite;
+    }
+    .marquee-wrapper:hover .animate-marquee {
+      animation-play-state: paused;
+    }
+
+    /* Magnetic Button Smooth Return */
+    .magnetic-btn {
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s ease;
+      will-change: transform;
+    }
+
+    /* Modal Entrance Animation */
+    @keyframes modalPop {
+      from {
+        opacity: 0;
+        transform: translateY(16px) scale(0.98);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+    .animate-modal-pop {
+      animation: modalPop 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
     /* Custom Scrollbar */
     ::-webkit-scrollbar {
       width: 6px;
@@ -144,18 +232,84 @@
 </head>
 <body class="paper-grain selection:bg-crimson selection:text-white">
 
+  <!-- =========================================================
+       00. SWISS EDITORIAL INK-DROP PRELOADER CURTAIN
+  ========================================================== -->
+  <div id="swarifly-preloader" class="fixed inset-0 z-[100] bg-ink text-stoneBg flex flex-col items-center justify-between p-8">
+    <div class="w-full flex items-center justify-between font-mono text-[10px] tracking-[0.2em] uppercase text-stoneBg/60">
+      <span>SWARIFLY® ARCHIVE</span>
+      <span>EST. 2018</span>
+    </div>
+
+    <!-- Center Animated Fountain Pen Nib + 'S' Monogram -->
+    <div class="flex flex-col items-center">
+      <svg class="w-20 h-24 mb-5" viewBox="0 0 80 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Geometric Fountain Pen Nib Outline -->
+        <path
+          class="nib-draw-path"
+          d="M40 6L68 48L56 86H24L12 48L40 6Z"
+          stroke="#ECEBE8"
+          stroke-width="2.2"
+          stroke-linejoin="miter"
+        />
+        <!-- Nib Breather Hole & Slit -->
+        <line class="nib-draw-path" x1="40" y1="6" x2="40" y2="44" stroke="#D81E1E" stroke-width="2" />
+        <circle cx="40" cy="48" r="4.5" fill="#D81E1E" />
+        <!-- Geometric 'S' Monogram Integrated in Nib Collar -->
+        <path
+          class="nib-draw-path"
+          d="M48 60H33V68H47V76H32"
+          stroke="#ECEBE8"
+          stroke-width="2.2"
+          stroke-linecap="square"
+        />
+      </svg>
+
+      <div class="font-display text-3xl tracking-[0.06em] uppercase text-stoneBg">
+        SWARIFLY<span class="text-crimson text-sm align-top ml-0.5">®</span>
+      </div>
+      <div class="mt-2 font-mono text-[10px] uppercase tracking-[0.24em] text-stoneBg/60">
+        PREPARING ARCHIVAL SHEET...
+      </div>
+    </div>
+
+    <div class="w-full max-w-xs bg-stoneBg/15 h-[2px] overflow-hidden">
+      <div class="h-full bg-crimson w-full origin-left animate-[drawNibStroke_1.1s_ease-out_forwards]"></div>
+    </div>
+  </div>
+
   <!-- Main Architectural Sheet Container -->
   <div class="max-w-[1440px] mx-auto bg-stoneBg min-h-screen border-x border-ink/20 relative">
 
     <!-- =========================================================
-         TOP NAVIGATION BAR (Exact Swiss Divided Header)
+         TOP NAVIGATION BAR (Exact Swiss Divided Header + Custom SVG Mark)
     ========================================================== -->
     <header class="sticky top-0 z-40 bg-stoneBg/95 backdrop-blur-sm grid-border-b">
       <div class="flex items-center justify-between px-4 sm:px-8 h-16 md:h-20">
-        <!-- Brand Logo + Micro Descriptor -->
+        <!-- Brand Logo + Custom Geometric Fountain-Pen Nib & 'S' SVG Mark -->
         <div class="flex items-center gap-4 sm:gap-8">
-          <a href="#" class="font-display text-2xl sm:text-3xl tracking-tight text-ink flex items-start">
-            SWARIFLY<span class="text-xs font-sans font-bold ml-0.5 mt-1">®</span>
+          <a href="#" class="brand-logo-group inline-flex items-center gap-2.5 text-ink">
+            <!-- Custom Geometric Nib & 'S' Monogram SVG -->
+            <svg class="w-7 h-8 shrink-0" viewBox="0 0 36 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path
+                class="logo-stroke"
+                d="M18 2L32 21L26 39H10L4 21L18 2Z"
+                stroke="#111111"
+                stroke-width="2"
+              />
+              <line class="logo-stroke" x1="18" y1="2" x2="18" y2="19" stroke="#111111" stroke-width="1.75" />
+              <circle class="logo-nib-dot transition-colors duration-300" cx="18" cy="21.5" r="2.4" fill="#111111" />
+              <path
+                class="logo-stroke"
+                d="M22 27H14.5V30.5H21.5V34H14"
+                stroke="#111111"
+                stroke-width="1.8"
+                stroke-linecap="square"
+              />
+            </svg>
+            <span class="font-display text-2xl sm:text-3xl tracking-tight flex items-start">
+              SWARIFLY<span class="text-xs font-sans font-bold ml-0.5 mt-1">®</span>
+            </span>
           </a>
           <div class="hidden lg:block text-[9px] font-mono uppercase tracking-[0.14em] leading-tight text-ink/75 border-l border-ink/25 pl-4">
             FINE STATIONERY<br />
@@ -226,7 +380,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[560px] lg:min-h-[670px] relative">
 
         <!-- Left / Foreground Editorial Typography Column -->
-        <div class="lg:col-span-6 px-5 sm:px-10 pt-8 pb-10 lg:py-12 flex flex-col justify-between z-20 relative">
+        <div class="lg:col-span-6 px-5 sm:px-10 pt-8 pb-10 lg:py-12 flex flex-col justify-between z-20 relative reveal-up">
           <!-- Section Index -->
           <div class="flex items-center gap-4">
             <span class="font-mono text-[11px] font-medium tracking-[0.18em] text-ink">01 / 04</span>
@@ -246,13 +400,13 @@
 
             <div class="w-6 h-[1px] bg-ink/50 my-5"></div>
 
-            <!-- Crimson Primary CTA Button -->
+            <!-- Crimson Primary Magnetic CTA Button -->
             <div class="flex flex-wrap items-center gap-4">
               <a
                 href="#catalog"
-                class="inline-flex items-center justify-between gap-6 bg-crimson hover:bg-crimsonDark text-white text-[11px] font-bold uppercase tracking-[0.16em] px-6 py-4 rounded-[2px] transition-all duration-200 shadow-sm hover:translate-x-0.5"
+                class="magnetic-btn inline-flex items-center justify-between gap-6 bg-crimson hover:bg-crimsonDark text-white text-[11px] font-bold uppercase tracking-[0.16em] px-6 py-4 rounded-[2px] shadow-sm"
               >
-                <span>EXPLORE CATALOG</span>
+                <span>EXPLORE OBJECTS</span>
                 <span class="text-sm leading-none">→</span>
               </a>
             </div>
@@ -266,7 +420,7 @@
         </div>
 
         <!-- Right Visual Canvas: Bold Crimson Circle + Monochrome Luxury Fountain Pen & Paper -->
-        <div class="lg:col-span-6 relative flex items-center justify-center min-h-[420px] lg:min-h-full px-4 pb-8 lg:p-0">
+        <div class="lg:col-span-6 relative flex items-center justify-center min-h-[420px] lg:min-h-full px-4 pb-8 lg:p-0 reveal-up" style="transition-delay: 140ms;">
 
           <!-- Technical Crosshairs matching Reference -->
           <div class="crosshair hidden sm:block absolute top-14 left-12 z-20"></div>
@@ -283,8 +437,8 @@
             </span>
           </div>
 
-          <!-- Signature Crimson Red Geometric Circle & Lower Sweep -->
-          <div class="relative w-[310px] h-[310px] sm:w-[440px] sm:h-[440px] xl:w-[500px] xl:h-[500px] rounded-full bg-crimson flex items-center justify-center shadow-inner overflow-visible">
+          <!-- Signature Crimson Red Geometric Circle with Scroll Parallax -->
+          <div id="hero-crimson-orb" class="relative w-[310px] h-[310px] sm:w-[440px] sm:h-[440px] xl:w-[500px] xl:h-[500px] rounded-full bg-crimson flex items-center justify-center shadow-inner overflow-visible will-change-transform">
             <!-- Secondary Lower Crimson Arc Accent (mimicking reference red sweep) -->
             <div class="hidden sm:block absolute -bottom-16 -left-24 w-64 h-64 rounded-full bg-crimson/95 -z-10"></div>
 
@@ -311,43 +465,43 @@
     </section>
 
     <!-- =========================================================
+         ANIMATED SWISS EDITORIAL MARQUEE TICKER BAR
+    ========================================================== -->
+    <div class="marquee-wrapper grid-border-b bg-ink text-stoneBg py-3 overflow-hidden select-none">
+      <div class="animate-marquee flex items-center gap-8 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.22em]">
+        <span>SWARIFLY® ARCHIVAL PAPER</span>
+        <span class="text-crimson">•</span>
+        <span>SOLID BRASS INSTRUMENTS</span>
+        <span class="text-crimson">•</span>
+        <span>JAPANESE PIGMENT INK</span>
+        <span class="text-crimson">•</span>
+        <span>SWISS GRID CRAFTSMANSHIP</span>
+        <span class="text-crimson">•</span>
+        <span>SWARIFLY® ARCHIVAL PAPER</span>
+        <span class="text-crimson">•</span>
+        <span>SOLID BRASS INSTRUMENTS</span>
+        <span class="text-crimson">•</span>
+        <span>JAPANESE PIGMENT INK</span>
+        <span class="text-crimson">•</span>
+        <span>SWISS GRID CRAFTSMANSHIP</span>
+        <span class="text-crimson">•</span>
+      </div>
+    </div>
+
+    <!-- =========================================================
          SECTION 02: ABOUT & CATEGORIES SPLIT GRID ("MORE THAN PAPER")
     ========================================================== -->
     <section id="about" class="grid-border-b">
       <div class="grid grid-cols-1 lg:grid-cols-12">
 
         <!-- Left Column (4 cols): 02 ABOUT + Condensed Headline + Editorial Copy -->
-        <div class="lg:col-span-4 p-6 sm:p-10 flex flex-col justify-between grid-border-b lg:grid-border-b-0 lg:grid-border-r">
-          <div>
-            <div class="flex items-center gap-3 mb-7">
-              <span class="font-mono text-[11px] font-medium tracking-[0.15em]">02</span>
-              <span class="text-[11px] font-bold uppercase tracking-[0.16em]">ABOUT</span>
-              <span class="w-10 h-[1px] bg-ink/40"></span>
-            </div>
-
-            <h2 class="display-mega text-5xl sm:text-6xl text-ink mb-6">
-              MORE<br />
-              THAN PAPER
-            </h2>
-
-            <p class="text-xs sm:text-[13px] leading-[1.7] text-ink/80 max-w-sm">
-              We're an independent stationery house focused on tactile writing instruments, Japanese fountain nibs, and heavyweight cotton rag paper. We help thinkers, architects, and writers capture permanence in a fleeting digital world.
-            </p>
-          </div>
-
-          <div class="mt-10 pt-4">
-            <button
-              onclick="openStoryModal()"
-              class="group inline-flex items-center gap-4 text-[11px] font-bold uppercase tracking-[0.16em] text-ink hover:text-crimson transition-colors cursor-pointer"
-            >
-              <span>LEARN MORE</span>
-              <span class="transform group-hover:translate-x-1.5 transition-transform">→</span>
+        <div class="lg:col-span-4 p-6 sm:p-10 flex flex-col justify-between grid-border-b lg:grid-border-b-0 lg:grid-border-r reveal-up">
             </button>
           </div>
         </div>
 
         <!-- Center Column (5 cols): Dramatic Monochrome Architectural Desk & Paper Photo -->
-        <div class="lg:col-span-5 p-6 sm:p-8 flex items-center justify-center grid-border-b lg:grid-border-b-0 lg:grid-border-r bg-stoneCard/40">
+        <div class="lg:col-span-5 p-6 sm:p-8 flex items-center justify-center grid-border-b lg:grid-border-b-0 lg:grid-border-r bg-stoneCard/40 reveal-up" style="transition-delay: 120ms;">
           <div class="group relative w-full h-[300px] sm:h-[360px] overflow-hidden bg-ink">
             <img
               src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=1000&q=85"
@@ -362,7 +516,7 @@
         </div>
 
         <!-- Right Column (3 cols): CATEGORIES Interactive List -->
-        <div id="categories" class="lg:col-span-3 p-6 sm:p-10 flex flex-col justify-between">
+        <div id="categories" class="lg:col-span-3 p-6 sm:p-10 flex flex-col justify-between reveal-up" style="transition-delay: 240ms;">
           <div>
             <h3 class="display-mega text-3xl sm:text-4xl text-ink mb-7">
               CATEGORIES
@@ -422,11 +576,11 @@
     <section id="catalog" class="grid-border-b px-5 sm:px-10 py-10 sm:py-14">
 
       <!-- Section Header Row -->
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-7">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-7 reveal-up">
         <div class="flex items-center gap-4">
           <span class="font-mono text-[11px] font-medium tracking-[0.15em]">03</span>
           <h2 class="text-xs sm:text-sm font-extrabold uppercase tracking-[0.16em]">
-            SELECTED EDITIONS
+            SELECTED OBJECTS
           </h2>
         </div>
 
@@ -470,7 +624,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[430px]">
 
         <!-- Left Editorial CTA Block -->
-        <div class="lg:col-span-6 p-6 sm:p-12 flex flex-col justify-between z-10 relative">
+        <div class="lg:col-span-6 p-6 sm:p-12 flex flex-col justify-between z-10 relative reveal-up">
           <div class="relative inline-block max-w-md">
             <h2 class="display-mega text-[4.2rem] sm:text-[5.6rem] xl:text-[6.4rem] text-ink">
               LET'S<br />
@@ -503,7 +657,7 @@
 
             <button
               onclick="openContactModal()"
-              class="inline-flex items-center justify-between gap-7 bg-ink hover:bg-crimson text-stoneBg text-[11px] font-bold uppercase tracking-[0.16em] px-7 py-4 rounded-[2px] transition-colors duration-200 cursor-pointer"
+              class="magnetic-btn inline-flex items-center justify-between gap-7 bg-ink hover:bg-crimson text-stoneBg text-[11px] font-bold uppercase tracking-[0.16em] px-7 py-4 rounded-[2px] cursor-pointer"
             >
               <span>CONTACT US</span>
               <span class="text-sm leading-none">→</span>
@@ -511,13 +665,14 @@
           </div>
         </div>
 
-        <!-- Right Swirling Ink Macro Photography + Coordinates -->
-        <div class="lg:col-span-6 relative min-h-[320px] lg:min-h-full flex items-end justify-end overflow-hidden">
+        <!-- Right Swirling Ink Macro Photography + Scroll Parallax + Coordinates -->
+        <div class="lg:col-span-6 relative min-h-[320px] lg:min-h-full flex items-end justify-end overflow-hidden reveal-up" style="transition-delay: 140ms;">
           <img
+            id="ink-parallax-img"
             src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=1200&q=85"
             alt="Monochrome Swirling Archival Calligraphy Ink"
             onerror="this.src='https://placehold.co/1000x800/111111/ECEBE8?text=ARCHIVAL+INK+FLOW'"
-            class="absolute inset-0 w-full h-full object-cover object-center grayscale contrast-150 brightness-95 mix-blend-multiply"
+            class="absolute inset-0 w-full h-[115%] -top-[7%] object-cover object-center grayscale contrast-150 brightness-95 mix-blend-multiply will-change-transform"
           />
 
           <!-- Subtle Gradient Edge Fade into Stone Background -->
@@ -537,12 +692,20 @@
     </section>
 
     <!-- =========================================================
-         FOOTER (SWARIFLY® + SOCIAL LINKS + COPYRIGHT)
+         FOOTER (SWARIFLY® + CUSTOM SVG MARK + SOCIAL LINKS + COPYRIGHT)
     ========================================================== -->
     <footer class="px-5 sm:px-10 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-ink">
-      <!-- Brand Wordmark -->
-      <a href="#" class="font-display text-xl tracking-tight flex items-start">
-        SWARIFLY<span class="text-[10px] font-sans font-bold ml-0.5 mt-0.5">®</span>
+      <!-- Brand Wordmark + Custom Nib & 'S' SVG -->
+      <a href="#" class="brand-logo-group inline-flex items-center gap-2 text-ink">
+        <svg class="w-5 h-6 shrink-0" viewBox="0 0 36 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path class="logo-stroke" d="M18 2L32 21L26 39H10L4 21L18 2Z" stroke="#111111" stroke-width="2.2" />
+          <line class="logo-stroke" x1="18" y1="2" x2="18" y2="19" stroke="#111111" stroke-width="1.8" />
+          <circle class="logo-nib-dot transition-colors duration-300" cx="18" cy="21.5" r="2.4" fill="#111111" />
+          <path class="logo-stroke" d="M22 27H14.5V30.5H21.5V34H14" stroke="#111111" stroke-width="1.9" stroke-linecap="square" />
+        </svg>
+        <span class="font-display text-xl tracking-tight flex items-start">
+          SWARIFLY<span class="text-[10px] font-sans font-bold ml-0.5 mt-0.5">®</span>
+        </span>
       </a>
 
       <!-- Center Social / Editorial Links -->
@@ -609,7 +772,7 @@
        PRODUCT QUICK-VIEW MODAL
   ========================================================== -->
   <div id="product-modal" class="fixed inset-0 bg-ink/60 backdrop-blur-xs z-50 hidden items-center justify-center p-4">
-    <div class="bg-stoneBg border border-ink/30 max-w-2xl w-full overflow-hidden shadow-2xl relative animate-fadeIn">
+    <div class="bg-stoneBg border border-ink/30 max-w-2xl w-full overflow-hidden shadow-2xl relative animate-modal-pop">
       <button onclick="closeProductModal()" class="absolute top-4 right-4 z-10 w-9 h-9 bg-stoneBg border border-ink/25 flex items-center justify-center hover:bg-crimson hover:text-white hover:border-crimson transition-colors cursor-pointer">
         ✕
       </button>
@@ -623,7 +786,7 @@
        BESPOKE INQUIRY / CONTACT MODAL
   ========================================================== -->
   <div id="contact-modal" class="fixed inset-0 bg-ink/60 backdrop-blur-xs z-50 hidden items-center justify-center p-4">
-    <div class="bg-stoneBg border border-ink/30 max-w-lg w-full p-6 sm:p-9 relative shadow-2xl">
+    <div class="bg-stoneBg border border-ink/30 max-w-lg w-full p-6 sm:p-9 relative shadow-2xl animate-modal-pop">
       <button onclick="closeContactModal()" class="absolute top-5 right-5 w-9 h-9 border border-ink/25 flex items-center justify-center hover:bg-ink hover:text-stoneBg transition-colors cursor-pointer">
         ✕
       </button>
@@ -670,7 +833,7 @@
        BRAND MANIFESTO / STORY MODAL ("LEARN MORE")
   ========================================================== -->
   <div id="story-modal" class="fixed inset-0 bg-ink/60 backdrop-blur-xs z-50 hidden items-center justify-center p-4">
-    <div class="bg-stoneBg border border-ink/30 max-w-xl w-full p-6 sm:p-10 relative shadow-2xl">
+    <div class="bg-stoneBg border border-ink/30 max-w-xl w-full p-6 sm:p-10 relative shadow-2xl animate-modal-pop">
       <button onclick="closeStoryModal()" class="absolute top-5 right-5 w-9 h-9 border border-ink/25 flex items-center justify-center hover:bg-ink hover:text-stoneBg transition-colors cursor-pointer">
         ✕
       </button>
@@ -792,12 +955,12 @@
         ? PRODUCTS
         : PRODUCTS.filter(p => p.category === activeFilter || (activeFilter === 'desk' && p.category === 'ink'));
 
-      grid.innerHTML = filtered.map(product => `
-        <article class="group flex flex-col">
-          <!-- High-Contrast Monochrome Product Frame -->
+      grid.innerHTML = filtered.map((product, index) => `
+        <article class="group flex flex-col reveal-up is-visible" style="transition-delay: ${index * 75}ms;">
+          <!-- High-Contrast Monochrome Product Frame with Ink-Border Highlight -->
           <div
             onclick="openProductModal('${product.id}')"
-            class="relative aspect-[4/3] w-full bg-ink overflow-hidden cursor-pointer mb-4"
+            class="relative aspect-[4/3] w-full bg-ink overflow-hidden cursor-pointer mb-4 border border-transparent group-hover:border-ink transition-colors duration-300"
           >
             <img
               src="${product.image}"
@@ -811,7 +974,7 @@
           </div>
 
           <!-- Reference Card Metadata Row: Index + Title + Subtitle + Circular Arrow Button -->
-          <div class="flex items-end justify-between pt-1 pb-3 grid-border-b">
+          <div class="flex items-end justify-between pt-1 pb-3 grid-border-b group-hover:border-ink transition-colors duration-300">
             <div>
               <div class="flex items-center gap-2.5 mb-1">
                 <span class="font-mono text-[11px] font-medium text-ink/75">${product.id}</span>
@@ -1090,10 +1253,77 @@
       }, 3000);
     }
 
+    // 1. Preloader Curtain Dismissal
+    function initPreloader() {
+      const preloader = document.getElementById('swarifly-preloader');
+      if (!preloader) return;
+      setTimeout(() => {
+        preloader.classList.add('curtain-up');
+      }, 1200);
+    }
+
+    // 2. IntersectionObserver Scroll-Triggered Staggered Reveals
+    function initScrollReveals() {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+
+      document.querySelectorAll('.reveal-up').forEach((el) => observer.observe(el));
+    }
+
+    // 3. Subtle Scroll Parallax for Crimson Hero Circle & Swirling Ink Art
+    function initParallax() {
+      const crimsonOrb = document.getElementById('hero-crimson-orb');
+      const inkArt = document.getElementById('ink-parallax-img');
+
+      window.addEventListener(
+        'scroll',
+        () => {
+          const scrollY = window.scrollY;
+          if (crimsonOrb && scrollY < 900) {
+            crimsonOrb.style.transform = `translateY(${scrollY * 0.08}px)`;
+          }
+          if (inkArt) {
+            const rect = inkArt.parentElement.getBoundingClientRect();
+            const offset = rect.top * -0.08;
+            inkArt.style.transform = `translateY(${offset}px)`;
+          }
+        },
+        { passive: true }
+      );
+    }
+
+    // 4. Magnetic Hover Effect on Primary CTA Buttons
+    function initMagneticButtons() {
+      document.querySelectorAll('.magnetic-btn').forEach((btn) => {
+        btn.addEventListener('mousemove', (e) => {
+          const rect = btn.getBoundingClientRect();
+          const x = (e.clientX - rect.left - rect.width / 2) * 0.22;
+          const y = (e.clientY - rect.top - rect.height / 2) * 0.22;
+          btn.style.transform = `translate(${x}px, ${y}px)`;
+        });
+        btn.addEventListener('mouseleave', () => {
+          btn.style.transform = 'translate(0px, 0px)';
+        });
+      });
+    }
+
     // Initialize Page
     window.addEventListener('DOMContentLoaded', () => {
       renderProducts();
       updateCartUI();
+      initPreloader();
+      initScrollReveals();
+      initParallax();
+      initMagneticButtons();
     });
   </script>
 </body>
