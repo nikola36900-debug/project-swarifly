@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SWARIFLY® — Fine Stationery & Architectural Desk Objects</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Anton (Condensed Brutalist Display), Inter (Swiss UI), Caveat (Handwritten Editorial Accent), JetBrains Mono (Coordinates & Catalog Index) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@600;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            stoneBg: '#ECEBE8',
+            stoneCard: '#E4E2DD',
+            ink: '#111111',
+            crimson: '#D81E1E',
+            crimsonDark: '#B31717',
+          },
+          fontFamily: {
+            display: ['Anton', 'sans-serif'],
+            sans: ['Inter', 'sans-serif'],
+            script: ['Caveat', 'cursive'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* Custom Base Styles & Architectural Paper Grain Texture */
+    :root {
+      --bg-stone: #ECEBE8;
+      --ink-black: #111111;
+      --accent-red: #D81E1E;
+      --grid-line: rgba(17, 17, 17, 0.22);
+    }
+
+    body {
+      background-color: var(--bg-stone);
+      color: var(--ink-black);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Subtle tactile cotton paper grain overlay */
+    .paper-grain::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 60;
+      opacity: 0.038;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* Swiss Architectural Grid Borders */
+    .grid-border-b {
+      border-bottom: 1px solid var(--grid-line);
+    }
+    .grid-border-t {
+      border-top: 1px solid var(--grid-line);
+    }
+    .grid-border-r {
+      border-right: 1px solid var(--grid-line);
+    }
+    .grid-border-l {
+      border-left: 1px solid var(--grid-line);
+    }
+
+    /* Editorial High-Contrast Monochrome Photo Treatment */
+    .editorial-photo {
+      filter: grayscale(100%) contrast(122%) brightness(96%);
+      transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), filter 0.45s ease;
+    }
+    .group:hover .editorial-photo {
+      transform: scale(1.04);
+      filter: grayscale(100%) contrast(130%) brightness(92%);
+    }
+
+    /* Hero Subject Cutout Blend Mode so dark ink/pen sits naturally over the crimson circle */
+    .hero-blend-photo {
+      filter: grayscale(100%) contrast(135%) brightness(98%);
+      mix-blend-mode: multiply;
+    }
+
+    /* Display Typography Tight Leading */
+    .display-mega {
+      font-family: 'Anton', sans-serif;
+      line-height: 0.90;
+      letter-spacing: -0.015em;
+      text-transform: uppercase;
+    }
+
+    /* Technical Crosshair Marker */
+    .crosshair {
+      position: relative;
+      width: 15px;
+      height: 15px;
+      display: inline-block;
+    }
+    .crosshair::before,
+    .crosshair::after {
+      content: "";
+      position: absolute;
+      background-color: rgba(17, 17, 17, 0.45);
+    }
+    .crosshair::before {
+      top: 7px;
+      left: 0;
+      width: 15px;
+      height: 1px;
+    }
+    .crosshair::after {
+      top: 0;
+      left: 7px;
+      width: 1px;
+      height: 15px;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #ECEBE8;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #111111;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #D81E1E;
+    }
+  </style>
+</head>
+<body class="paper-grain selection:bg-crimson selection:text-white">
+
+  <!-- Main Architectural Sheet Container -->
+  <div class="max-w-[1440px] mx-auto bg-stoneBg min-h-screen border-x border-ink/20 relative">
+
+    <!-- =========================================================
+         TOP NAVIGATION BAR (Exact Swiss Divided Header)
+    ========================================================== -->
+    <header class="sticky top-0 z-40 bg-stoneBg/95 backdrop-blur-sm grid-border-b">
+      <div class="flex items-center justify-between px-4 sm:px-8 h-16 md:h-20">
+        <!-- Brand Logo + Micro Descriptor -->
+        <div class="flex items-center gap-4 sm:gap-8">
+          <a href="#" class="font-display text-2xl sm:text-3xl tracking-tight text-ink flex items-start">
+            SWARIFLY<span class="text-xs font-sans font-bold ml-0.5 mt-1">®</span>
+          </a>
+          <div class="hidden lg:block text-[9px] font-mono uppercase tracking-[0.14em] leading-tight text-ink/75 border-l border-ink/25 pl-4">
+            FINE STATIONERY<br />
+            PAPER • INK • OBJECTS
+          </div>
+        </div>
+
+        <!-- Center-Right Divided Grid Navigation Links -->
+        <nav class="hidden md:flex items-center h-full">
+          <a href="#catalog" class="h-full flex items-center px-5 lg:px-7 text-[11px] font-semibold tracking-[0.14em] uppercase hover:text-crimson transition-colors grid-border-l">
+            CATALOG
+          </a>
+          <a href="#categories" class="h-full flex items-center px-5 lg:px-7 text-[11px] font-semibold tracking-[0.14em] uppercase hover:text-crimson transition-colors grid-border-l">
+            BESPOKE
+          </a>
+          <a href="#about" class="h-full flex items-center px-5 lg:px-7 text-[11px] font-semibold tracking-[0.14em] uppercase hover:text-crimson transition-colors grid-border-l">
+            ABOUT
+          </a>
+          <a href="#journal" class="h-full flex items-center px-5 lg:px-7 text-[11px] font-semibold tracking-[0.14em] uppercase hover:text-crimson transition-colors grid-border-l">
+            JOURNAL
+          </a>
+          <button onclick="openContactModal()" class="h-full flex items-center px-5 lg:px-7 text-[11px] font-semibold tracking-[0.14em] uppercase hover:text-crimson transition-colors grid-border-l cursor-pointer">
+            CONTACT
+          </button>
+        </nav>
+
+        <!-- Far Right: Rule Line + Interactive Cart Circle Trigger -->
+        <div class="flex items-center gap-3 sm:gap-5">
+          <span class="hidden sm:inline-block w-10 lg:w-16 h-[1px] bg-ink/40"></span>
+          <button
+            onclick="toggleCart(true)"
+            aria-label="Open Shopping Bag"
+            class="group relative flex items-center gap-2.5 pl-3 pr-1.5 py-1.5 rounded-full hover:bg-ink/5 transition-colors cursor-pointer"
+          >
+            <span class="text-[10px] font-mono uppercase tracking-widest hidden sm:inline text-ink/80 group-hover:text-ink">BAG</span>
+            <span id="nav-cart-badge" class="w-6 h-6 rounded-full bg-ink text-stoneBg group-hover:bg-crimson transition-colors flex items-center justify-center text-[11px] font-mono font-medium">
+              2
+            </span>
+          </button>
+
+          <!-- Mobile Menu Toggle -->
+          <button
+            onclick="toggleMobileMenu()"
+            aria-label="Toggle Menu"
+            class="md:hidden p-2 text-ink hover:text-crimson focus:outline-none"
+          >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M4 7h16M4 17h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Drawer -->
+      <div id="mobile-menu" class="hidden md:hidden bg-stoneBg grid-border-t px-6 py-5 space-y-3">
+        <a href="#catalog" onclick="toggleMobileMenu()" class="block text-xs font-semibold tracking-[0.16em] uppercase py-1.5 hover:text-crimson">01 — CATALOG</a>
+        <a href="#categories" onclick="toggleMobileMenu()" class="block text-xs font-semibold tracking-[0.16em] uppercase py-1.5 hover:text-crimson">02 — BESPOKE & CATEGORIES</a>
+        <a href="#about" onclick="toggleMobileMenu()" class="block text-xs font-semibold tracking-[0.16em] uppercase py-1.5 hover:text-crimson">03 — ABOUT SWARIFLY</a>
+        <a href="#journal" onclick="toggleMobileMenu()" class="block text-xs font-semibold tracking-[0.16em] uppercase py-1.5 hover:text-crimson">04 — ARCHIVE JOURNAL</a>
+        <button onclick="toggleMobileMenu(); openContactModal();" class="block text-left w-full text-xs font-semibold tracking-[0.16em] uppercase py-1.5 text-crimson">05 — CONTACT STUDIO →</button>
+      </div>
+    </header>
+
+    <!-- =========================================================
+         SECTION 01: HERO ("IDEAS IN INK" + CRIMSON CIRCLE + EDITORIAL PEN)
+    ========================================================== -->
+    <section class="relative grid-border-b overflow-hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[560px] lg:min-h-[670px] relative">
+
+        <!-- Left / Foreground Editorial Typography Column -->
+        <div class="lg:col-span-6 px-5 sm:px-10 pt-8 pb-10 lg:py-12 flex flex-col justify-between z-20 relative">
+          <!-- Section Index -->
+          <div class="flex items-center gap-4">
+            <span class="font-mono text-[11px] font-medium tracking-[0.18em] text-ink">01 / 04</span>
+            <span class="w-14 h-[1px] bg-ink/40"></span>
+          </div>
+
+          <!-- Massive Stacked Headline Overlapping Visual -->
+          <div class="my-8 lg:my-6">
+            <h1 class="display-mega text-[5.2rem] sm:text-[7.2rem] xl:text-[8.8rem] text-ink select-none">
+              IDEAS<br />
+              <span class="relative inline-block">IN INK</span>
+            </h1>
+
+            <p class="mt-6 max-w-[310px] text-[11px] sm:text-xs font-medium uppercase tracking-[0.13em] leading-[1.65] text-ink/90">
+              WE TURN THOUGHTS INTO TANGIBLE ARTIFACTS THAT LAST.
+            </p>
+
+            <div class="w-6 h-[1px] bg-ink/50 my-5"></div>
+
+            <!-- Crimson Primary CTA Button -->
+            <div class="flex flex-wrap items-center gap-4">
+              <a
+                href="#catalog"
+                class="inline-flex items-center justify-between gap-6 bg-crimson hover:bg-crimsonDark text-white text-[11px] font-bold uppercase tracking-[0.16em] px-6 py-4 rounded-[2px] transition-all duration-200 shadow-sm hover:translate-x-0.5"
+              >
+                <span>EXPLORE CATALOG</span>
+                <span class="text-sm leading-none">→</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Bottom Micro Coordinate Note (Mobile/Tablet) -->
+          <div class="lg:hidden flex items-center justify-between pt-4 border-t border-ink/15 text-[10px] font-mono uppercase tracking-widest text-ink/70">
+            <span>CRAFTED STATIONERY</span>
+            <span>SINCE 2018</span>
+          </div>
+        </div>
+
+        <!-- Right Visual Canvas: Bold Crimson Circle + Monochrome Luxury Fountain Pen & Paper -->
+        <div class="lg:col-span-6 relative flex items-center justify-center min-h-[420px] lg:min-h-full px-4 pb-8 lg:p-0">
+
+          <!-- Technical Crosshairs matching Reference -->
+          <div class="crosshair hidden sm:block absolute top-14 left-12 z-20"></div>
+          <div class="crosshair hidden sm:block absolute top-1/2 left-4 z-20"></div>
+          <div class="crosshair hidden sm:block absolute bottom-20 right-1/3 z-20"></div>
+
+          <!-- Handwritten Script Annotation ("Write Bigger") -->
+          <div class="absolute top-4 right-6 sm:top-10 sm:right-12 z-30 text-right transform -rotate-12 select-none">
+            <span class="font-script text-3xl sm:text-4xl font-bold text-ink block leading-none">
+              Write
+            </span>
+            <span class="font-script text-3xl sm:text-4xl font-bold text-ink block leading-none underline decoration-ink/60 decoration-1 underline-offset-4">
+              Bigger
+            </span>
+          </div>
+
+          <!-- Signature Crimson Red Geometric Circle & Lower Sweep -->
+          <div class="relative w-[310px] h-[310px] sm:w-[440px] sm:h-[440px] xl:w-[500px] xl:h-[500px] rounded-full bg-crimson flex items-center justify-center shadow-inner overflow-visible">
+            <!-- Secondary Lower Crimson Arc Accent (mimicking reference red sweep) -->
+            <div class="hidden sm:block absolute -bottom-16 -left-24 w-64 h-64 rounded-full bg-crimson/95 -z-10"></div>
+
+            <!-- High-Contrast Monochrome Luxury Fountain Pen & Notebook Photography -->
+            <div class="relative w-[112%] h-[112%] -mt-6 flex items-center justify-center overflow-hidden rounded-full">
+              <img
+                src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=1200&q=85"
+                alt="SWARIFLY Obsidian Fountain Pen and Cotton Paper"
+                onerror="this.src='https://placehold.co/800x800/111111/ECEBE8?text=SWARIFLY+FOUNTAIN+PEN'"
+                class="w-full h-full object-cover object-center hero-blend-photo scale-110 transition-transform duration-700 hover:scale-115"
+              />
+            </div>
+          </div>
+
+          <!-- Right-Edge Vertical Micro Label ("CRAFTED STATIONERY SINCE 2018") -->
+          <div class="hidden lg:block absolute bottom-10 right-8 z-20 text-left font-mono text-[9px] uppercase tracking-[0.16em] leading-[1.6] text-ink/80">
+            CRAFTED<br />
+            STATIONERY<br />
+            SINCE<br />
+            2018
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SECTION 02: ABOUT & CATEGORIES SPLIT GRID ("MORE THAN PAPER")
+    ========================================================== -->
+    <section id="about" class="grid-border-b">
+      <div class="grid grid-cols-1 lg:grid-cols-12">
+
+        <!-- Left Column (4 cols): 02 ABOUT + Condensed Headline + Editorial Copy -->
+        <div class="lg:col-span-4 p-6 sm:p-10 flex flex-col justify-between grid-border-b lg:grid-border-b-0 lg:grid-border-r">
+          <div>
+            <div class="flex items-center gap-3 mb-7">
+              <span class="font-mono text-[11px] font-medium tracking-[0.15em]">02</span>
+              <span class="text-[11px] font-bold uppercase tracking-[0.16em]">ABOUT</span>
+              <span class="w-10 h-[1px] bg-ink/40"></span>
+            </div>
+
+            <h2 class="display-mega text-5xl sm:text-6xl text-ink mb-6">
+              MORE<br />
+              THAN PAPER
+            </h2>
+
+            <p class="text-xs sm:text-[13px] leading-[1.7] text-ink/80 max-w-sm">
+              We're an independent stationery house focused on tactile writing instruments, Japanese fountain nibs, and heavyweight cotton rag paper. We help thinkers, architects, and writers capture permanence in a fleeting digital world.
+            </p>
+          </div>
+
+          <div class="mt-10 pt-4">
+            <button
+              onclick="openStoryModal()"
+              class="group inline-flex items-center gap-4 text-[11px] font-bold uppercase tracking-[0.16em] text-ink hover:text-crimson transition-colors cursor-pointer"
+            >
+              <span>LEARN MORE</span>
+              <span class="transform group-hover:translate-x-1.5 transition-transform">→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Center Column (5 cols): Dramatic Monochrome Architectural Desk & Paper Photo -->
+        <div class="lg:col-span-5 p-6 sm:p-8 flex items-center justify-center grid-border-b lg:grid-border-b-0 lg:grid-border-r bg-stoneCard/40">
+          <div class="group relative w-full h-[300px] sm:h-[360px] overflow-hidden bg-ink">
+            <img
+              src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=1000&q=85"
+              alt="Minimalist Architectural Notebook and Brass Pen Composition"
+              onerror="this.src='https://placehold.co/900x700/181818/ECEBE8?text=ARCHIVAL+PAPER+%26+BRASS'"
+              class="w-full h-full object-cover editorial-photo"
+            />
+            <div class="absolute bottom-3 left-3 bg-stoneBg/90 backdrop-blur-xs px-2.5 py-1 text-[9px] font-mono uppercase tracking-widest text-ink">
+              FIG 02. — 300GSM COTTON RAG
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column (3 cols): CATEGORIES Interactive List -->
+        <div id="categories" class="lg:col-span-3 p-6 sm:p-10 flex flex-col justify-between">
+          <div>
+            <h3 class="display-mega text-3xl sm:text-4xl text-ink mb-7">
+              CATEGORIES
+            </h3>
+
+            <ul class="space-y-3.5 text-xs sm:text-[13px] font-medium text-ink/85">
+              <li>
+                <button onclick="filterAndScroll('pens')" class="w-full text-left flex items-center justify-between py-1 hover:text-crimson hover:translate-x-1 transition-all cursor-pointer">
+                  <span>Fountain Pens</span>
+                  <span class="font-mono text-[10px] text-ink/45">01</span>
+                </button>
+              </li>
+              <li>
+                <button onclick="filterAndScroll('paper')" class="w-full text-left flex items-center justify-between py-1 hover:text-crimson hover:translate-x-1 transition-all cursor-pointer">
+                  <span>Archival Notebooks</span>
+                  <span class="font-mono text-[10px] text-ink/45">02</span>
+                </button>
+              </li>
+              <li>
+                <button onclick="filterAndScroll('desk')" class="w-full text-left flex items-center justify-between py-1 hover:text-crimson hover:translate-x-1 transition-all cursor-pointer">
+                  <span>Brass Desk Objects</span>
+                  <span class="font-mono text-[10px] text-ink/45">03</span>
+                </button>
+              </li>
+              <li>
+                <button onclick="filterAndScroll('ink')" class="w-full text-left flex items-center justify-between py-1 hover:text-crimson hover:translate-x-1 transition-all cursor-pointer">
+                  <span>Wax Seals & Ink</span>
+                  <span class="font-mono text-[10px] text-ink/45">04</span>
+                </button>
+              </li>
+              <li>
+                <button onclick="openContactModal('Bespoke Monogramming')" class="w-full text-left flex items-center justify-between py-1 hover:text-crimson hover:translate-x-1 transition-all cursor-pointer">
+                  <span>Bespoke Monogramming</span>
+                  <span class="font-mono text-[10px] text-crimson">★</span>
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-10 pt-4">
+            <button
+              onclick="filterAndScroll('all')"
+              class="group inline-flex items-center gap-4 text-[11px] font-bold uppercase tracking-[0.16em] text-ink hover:text-crimson transition-colors cursor-pointer"
+            >
+              <span>VIEW ALL CATEGORIES</span>
+              <span class="transform group-hover:translate-x-1.5 transition-transform">→</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SECTION 03: SELECTED EDITIONS (STATIONERY PRODUCT GRID)
+    ========================================================== -->
+    <section id="catalog" class="grid-border-b px-5 sm:px-10 py-10 sm:py-14">
+
+      <!-- Section Header Row -->
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-7">
+        <div class="flex items-center gap-4">
+          <span class="font-mono text-[11px] font-medium tracking-[0.15em]">03</span>
+          <h2 class="text-xs sm:text-sm font-extrabold uppercase tracking-[0.16em]">
+            SELECTED EDITIONS
+          </h2>
+        </div>
+
+        <!-- Category Filter Tabs + View All Action -->
+        <div class="flex flex-wrap items-center gap-2 sm:gap-3">
+          <div id="filter-buttons" class="flex flex-wrap items-center gap-1.5 mr-2">
+            <button data-filter="all" onclick="setFilter('all')" class="filter-btn active px-3 py-1.5 text-[10px] font-mono uppercase tracking-widest bg-ink text-stoneBg transition-colors cursor-pointer">
+              ALL (06)
+            </button>
+            <button data-filter="pens" onclick="setFilter('pens')" class="filter-btn px-3 py-1.5 text-[10px] font-mono uppercase tracking-widest border border-ink/25 text-ink hover:border-ink transition-colors cursor-pointer">
+              PENS
+            </button>
+            <button data-filter="paper" onclick="setFilter('paper')" class="filter-btn px-3 py-1.5 text-[10px] font-mono uppercase tracking-widest border border-ink/25 text-ink hover:border-ink transition-colors cursor-pointer">
+              PAPER
+            </button>
+            <button data-filter="desk" onclick="setFilter('desk')" class="filter-btn px-3 py-1.5 text-[10px] font-mono uppercase tracking-widest border border-ink/25 text-ink hover:border-ink transition-colors cursor-pointer">
+              DESK & INK
+            </button>
+          </div>
+
+          <button
+            onclick="setFilter('all')"
+            class="group inline-flex items-center gap-3 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.16em] text-ink hover:text-crimson transition-colors cursor-pointer"
+          >
+            <span>VIEW ALL EDITIONS</span>
+            <span class="transform group-hover:translate-x-1 transition-transform">→</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 3-Column Editorial Product Grid -->
+      <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-7 gap-y-10">
+        <!-- Product Cards dynamically rendered via JS -->
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SECTION 04: CLOSING EDITORIAL BANNER ("LET'S WRITE TOGETHER")
+    ========================================================== -->
+    <section id="journal" class="grid-border-b relative overflow-hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[430px]">
+
+        <!-- Left Editorial CTA Block -->
+        <div class="lg:col-span-6 p-6 sm:p-12 flex flex-col justify-between z-10 relative">
+          <div class="relative inline-block max-w-md">
+            <h2 class="display-mega text-[4.2rem] sm:text-[5.6rem] xl:text-[6.4rem] text-ink">
+              LET'S<br />
+              WRITE<br />
+              TOGETHER
+            </h2>
+
+            <!-- Hand-drawn Editorial Curved Arrow SVG (matching reference) -->
+            <svg
+              class="hidden sm:block w-36 h-20 text-ink absolute top-8 -right-24 transform -rotate-6 pointer-events-none"
+              viewBox="0 0 180 90"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M8 62 C 55 32, 110 28, 164 42" />
+              <path d="M144 26 L 166 42 L 142 56" />
+            </svg>
+          </div>
+
+          <div class="mt-8 sm:mt-10">
+            <p class="text-[11px] font-semibold uppercase tracking-[0.12em] text-ink mb-1">
+              HAVE A BESPOKE STATIONERY ORDER IN MIND?
+            </p>
+            <p class="text-[11px] uppercase tracking-[0.1em] text-ink/70 mb-6">
+              CUSTOM EMBOSSING, CORPORATE GIFTING & ARCHITECTURAL EDITIONS — WE'D LOVE TO HEAR FROM YOU.
+            </p>
+
+            <button
+              onclick="openContactModal()"
+              class="inline-flex items-center justify-between gap-7 bg-ink hover:bg-crimson text-stoneBg text-[11px] font-bold uppercase tracking-[0.16em] px-7 py-4 rounded-[2px] transition-colors duration-200 cursor-pointer"
+            >
+              <span>CONTACT US</span>
+              <span class="text-sm leading-none">→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Swirling Ink Macro Photography + Coordinates -->
+        <div class="lg:col-span-6 relative min-h-[320px] lg:min-h-full flex items-end justify-end overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=1200&q=85"
+            alt="Monochrome Swirling Archival Calligraphy Ink"
+            onerror="this.src='https://placehold.co/1000x800/111111/ECEBE8?text=ARCHIVAL+INK+FLOW'"
+            class="absolute inset-0 w-full h-full object-cover object-center grayscale contrast-150 brightness-95 mix-blend-multiply"
+          />
+
+          <!-- Subtle Gradient Edge Fade into Stone Background -->
+          <div class="hidden lg:block absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-stoneBg to-transparent"></div>
+
+          <!-- Technical Crosshair + Coordinates Stamp -->
+          <div class="relative z-10 p-6 sm:p-10 text-right flex flex-col items-end">
+            <div class="crosshair mb-4"></div>
+            <div class="bg-stoneBg/85 backdrop-blur-xs px-3 py-1.5 border border-ink/15 font-mono text-[10px] tracking-[0.16em] text-ink">
+              25.5788° N<br />
+              91.8933° E
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================
+         FOOTER (SWARIFLY® + SOCIAL LINKS + COPYRIGHT)
+    ========================================================== -->
+    <footer class="px-5 sm:px-10 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-ink">
+      <!-- Brand Wordmark -->
+      <a href="#" class="font-display text-xl tracking-tight flex items-start">
+        SWARIFLY<span class="text-[10px] font-sans font-bold ml-0.5 mt-0.5">®</span>
+      </a>
+
+      <!-- Center Social / Editorial Links -->
+      <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-8 text-[10px] font-semibold uppercase tracking-[0.16em] text-ink/80">
+        <a href="#catalog" class="hover:text-crimson transition-colors">INSTAGRAM</a>
+        <a href="#catalog" class="hover:text-crimson transition-colors">PINTEREST</a>
+        <a href="#about" class="hover:text-crimson transition-colors">BEHANCE</a>
+        <a href="#journal" class="hover:text-crimson transition-colors">JOURNAL</a>
+      </div>
+
+      <!-- Right Rule + Copyright -->
+      <div class="flex items-center gap-4">
+        <span class="hidden md:inline-block w-12 h-[1px] bg-ink/35"></span>
+        <span class="font-mono text-[9px] uppercase tracking-[0.14em] text-ink/70">
+          © 2026 SWARIFLY. ALL RIGHTS RESERVED.
+        </span>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- =========================================================
+       SLIDE-OVER SHOPPING BAG DRAWER
+  ========================================================== -->
+  <div id="cart-overlay" onclick="toggleCart(false)" class="fixed inset-0 bg-ink/50 backdrop-blur-xs z-50 hidden transition-opacity"></div>
+  <aside id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-stoneBg border-l border-ink/25 z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-between">
+    <!-- Drawer Header -->
+    <div class="px-6 py-5 grid-border-b flex items-center justify-between">
+      <div>
+        <span class="font-mono text-[10px] uppercase tracking-[0.16em] text-ink/60 block">SWARIFLY® ARCHIVE</span>
+        <h3 class="font-display text-2xl tracking-tight uppercase">YOUR SELECTION</h3>
+      </div>
+      <button onclick="toggleCart(false)" class="w-9 h-9 border border-ink/25 flex items-center justify-center hover:bg-ink hover:text-stoneBg transition-colors cursor-pointer">
+        ✕
+      </button>
+    </div>
+
+    <!-- Drawer Items List -->
+    <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-5">
+      <!-- Cart items injected via JS -->
+    </div>
+
+    <!-- Drawer Footer / Checkout -->
+    <div class="p-6 grid-border-t bg-stoneCard/50">
+      <div class="flex items-center justify-between text-xs font-mono uppercase tracking-wider mb-2 text-ink/70">
+        <span>SHIPPING (ARCHIVAL BOX)</span>
+        <span>COMPLIMENTARY</span>
+      </div>
+      <div class="flex items-center justify-between text-base font-bold uppercase tracking-wider mb-5">
+        <span>SUBTOTAL</span>
+        <span id="cart-subtotal" class="font-mono">$0.00</span>
+      </div>
+      <button
+        onclick="handleCheckout()"
+        class="w-full py-4 bg-crimson hover:bg-crimsonDark text-white text-xs font-bold uppercase tracking-[0.18em] flex items-center justify-center gap-3 transition-colors cursor-pointer"
+      >
+        <span>PROCEED TO DISPATCH</span>
+        <span>→</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- =========================================================
+       PRODUCT QUICK-VIEW MODAL
+  ========================================================== -->
+  <div id="product-modal" class="fixed inset-0 bg-ink/60 backdrop-blur-xs z-50 hidden items-center justify-center p-4">
+    <div class="bg-stoneBg border border-ink/30 max-w-2xl w-full overflow-hidden shadow-2xl relative animate-fadeIn">
+      <button onclick="closeProductModal()" class="absolute top-4 right-4 z-10 w-9 h-9 bg-stoneBg border border-ink/25 flex items-center justify-center hover:bg-crimson hover:text-white hover:border-crimson transition-colors cursor-pointer">
+        ✕
+      </button>
+      <div id="product-modal-content" class="grid grid-cols-1 md:grid-cols-2">
+        <!-- Populated dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       BESPOKE INQUIRY / CONTACT MODAL
+  ========================================================== -->
+  <div id="contact-modal" class="fixed inset-0 bg-ink/60 backdrop-blur-xs z-50 hidden items-center justify-center p-4">
+    <div class="bg-stoneBg border border-ink/30 max-w-lg w-full p-6 sm:p-9 relative shadow-2xl">
+      <button onclick="closeContactModal()" class="absolute top-5 right-5 w-9 h-9 border border-ink/25 flex items-center justify-center hover:bg-ink hover:text-stoneBg transition-colors cursor-pointer">
+        ✕
+      </button>
+
+      <div class="flex items-center gap-3 mb-3">
+        <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-crimson font-semibold">ATELIER DESK</span>
+        <span class="w-8 h-[1px] bg-ink/30"></span>
+      </div>
+      <h3 class="display-mega text-4xl sm:text-5xl text-ink mb-3">BESPOKE & INQUIRIES</h3>
+      <p class="text-xs text-ink/75 leading-relaxed mb-6">
+        Commission custom blind-debossed cotton stationery, engraved brass desk weights, or wholesale architectural editions.
+      </p>
+
+      <form id="contact-form" onsubmit="submitContactForm(event)" class="space-y-4">
+        <div>
+          <label class="block font-mono text-[10px] uppercase tracking-widest mb-1.5">FULL NAME / STUDIO</label>
+          <input type="text" required placeholder="e.g. Elena Vance — Studio Nord" class="w-full bg-transparent border border-ink/30 px-3.5 py-2.5 text-xs focus:outline-none focus:border-crimson" />
+        </div>
+        <div>
+          <label class="block font-mono text-[10px] uppercase tracking-widest mb-1.5">EMAIL ADDRESS</label>
+          <input type="email" required placeholder="elena@studionord.com" class="w-full bg-transparent border border-ink/30 px-3.5 py-2.5 text-xs focus:outline-none focus:border-crimson" />
+        </div>
+        <div>
+          <label class="block font-mono text-[10px] uppercase tracking-widest mb-1.5">COMMISSION TYPE</label>
+          <select id="contact-topic" class="w-full bg-stoneBg border border-ink/30 px-3.5 py-2.5 text-xs focus:outline-none focus:border-crimson">
+            <option value="Bespoke Monogramming">Bespoke Monogramming & Embossing</option>
+            <option value="Custom Fountain Nib">Custom Fountain Pen Nib Grind</option>
+            <option value="Architectural Corporate Edition">Architectural Corporate Edition</option>
+            <option value="General Inquiry">General Catalog Inquiry</option>
+          </select>
+        </div>
+        <div>
+          <label class="block font-mono text-[10px] uppercase tracking-widest mb-1.5">PROJECT BRIEF</label>
+          <textarea rows="3" required placeholder="Specify paper weight, quantity, or finish..." class="w-full bg-transparent border border-ink/30 px-3.5 py-2.5 text-xs focus:outline-none focus:border-crimson"></textarea>
+        </div>
+        <button type="submit" class="w-full py-3.5 bg-crimson hover:bg-crimsonDark text-white text-[11px] font-bold uppercase tracking-[0.18em] transition-colors cursor-pointer">
+          DISPATCH BRIEF →
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       BRAND MANIFESTO / STORY MODAL ("LEARN MORE")
+  ========================================================== -->
+  <div id="story-modal" class="fixed inset-0 bg-ink/60 backdrop-blur-xs z-50 hidden items-center justify-center p-4">
+    <div class="bg-stoneBg border border-ink/30 max-w-xl w-full p-6 sm:p-10 relative shadow-2xl">
+      <button onclick="closeStoryModal()" class="absolute top-5 right-5 w-9 h-9 border border-ink/25 flex items-center justify-center hover:bg-ink hover:text-stoneBg transition-colors cursor-pointer">
+        ✕
+      </button>
+      <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-crimson block mb-2">SWARIFLY® MANIFESTO — EST. 2018</span>
+      <h3 class="display-mega text-4xl sm:text-5xl text-ink mb-5">ARCHITECTURE FOR THOUGHT</h3>
+      <div class="space-y-4 text-xs sm:text-[13px] leading-relaxed text-ink/85">
+        <p>
+          Founded in 2018, <strong>SWARIFLY®</strong> treats everyday stationery with the rigor of Swiss industrial architecture. Every notebook is Smyth-sewn to lie completely flat at 180 degrees, milled from acid-free 120gsm–300gsm cotton rag that resists fountain pen feathering.
+        </p>
+        <p>
+          Our writing instruments are turned from solid aerospace aluminum, raw C360 brass, and matte-anodized titanium—balanced to the millimeter for fatigue-free drafting and long-form writing.
+        </p>
+      </div>
+      <div class="mt-7 pt-5 grid-border-t flex items-center justify-between">
+        <span class="font-mono text-[10px] uppercase tracking-widest text-ink/60">EDITION 04 / ARCHIVAL GRADE</span>
+        <button onclick="closeStoryModal()" class="px-5 py-2.5 bg-ink text-stoneBg text-[10px] font-bold uppercase tracking-[0.16em] hover:bg-crimson transition-colors cursor-pointer">
+          RETURN TO ARCHIVE
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       CUSTOM TOAST NOTIFICATION BANNER (NO ALERT())
+  ========================================================== -->
+  <div id="toast-notification" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+    <div class="bg-ink text-stoneBg border-l-4 border-crimson px-5 py-3.5 shadow-xl flex items-center gap-3">
+      <span class="w-2 h-2 rounded-full bg-crimson"></span>
+      <span id="toast-message" class="font-mono text-[11px] uppercase tracking-wider">ITEM ADDED TO BAG</span>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       APPLICATION LOGIC & CURATED STATIONERY CATALOG
+  ========================================================== -->
+  <script>
+    // Curated Luxury Stationery Catalog (Matching Reference Card Aesthetics)
+    const PRODUCTS = [
+      {
+        id: '001',
+        name: 'OBSIDIAN NIB',
+        category: 'pens',
+        categoryLabel: 'FOUNTAIN PEN',
+        price: 145,
+        specs: '14K Ruthenium-Plated Nib • Matte Anodized Brass Barrel • Converter Included',
+        description: 'Precision-turned matte black architectural fountain pen engineered with a low center of gravity and ultra-responsive Japanese fine nib.',
+        image: 'https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=900&q=85',
+        accentRed: true
+      },
+      {
+        id: '002',
+        name: 'MONOLITH A5',
+        category: 'paper',
+        categoryLabel: 'COTTON NOTEBOOK',
+        price: 38,
+        specs: '192 Pages • 120gsm Japanese Cotton Paper • Lay-Flat Smyth-Sewn Binding',
+        description: 'Exposed-spine architectural notebook with subtle 5mm dot-grid ruling and raw charcoal linen boards.',
+        image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=900&q=85',
+        accentRed: false
+      },
+      {
+        id: '003',
+        name: 'AXIS RULER',
+        category: 'desk',
+        categoryLabel: 'BRASS INSTRUMENT',
+        price: 62,
+        specs: '200mm Solid C360 Brass • Laser-Etched Metric & Imperial Scale • Beveled Ink Edge',
+        description: 'Heavyweight drafting scale with an elevated anti-smudge bevel designed specifically for technical fountain pen linework.',
+        image: 'https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=900&q=85',
+        accentRed: true
+      },
+      {
+        id: '004',
+        name: 'CRIMSON VERMILION',
+        category: 'ink',
+        categoryLabel: 'ARCHIVAL INK',
+        price: 28,
+        specs: '50ml Heavy Flint Glass Bottle • Pigment-Rich Archival Formula • pH Neutral',
+        description: 'SWARIFLY signature deep vermilion red bottled ink formulated for crisp shading, zero feathering, and century-grade permanence.',
+        image: 'https://images.unsplash.com/photo-1568205612837-017257d2310a?auto=format&fit=crop&w=900&q=85',
+        accentRed: true
+      },
+      {
+        id: '005',
+        name: 'DATUM STAND',
+        category: 'desk',
+        categoryLabel: 'DESK ARCHITECTURE',
+        price: 85,
+        specs: 'CNC-Milled Anodized Aluminum • Silicone Micro-Grip Base • 72° Pen Angle',
+        description: 'Monolithic weighted desk plinth crafted to hold your primary writing instrument upright like a sculptural spire.',
+        image: 'https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?auto=format&fit=crop&w=900&q=85',
+        accentRed: false
+      },
+      {
+        id: '006',
+        name: 'SEAL & STAMP',
+        category: 'ink',
+        categoryLabel: 'BESPOKE WAX KIT',
+        price: 54,
+        specs: 'Engraved Brass Die • 3 Crimson Sealing Wax Sticks • Rosewood Handle',
+        description: 'Complete correspondence sealing ensemble featuring custom monogram die engraving and flexible crimson archival wax.',
+        image: 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=900&q=85',
+        accentRed: false
+      }
+    ];
+
+    // Pre-populated Cart State for Immediate Interactivity
+    let cart = [
+      { id: '001', qty: 1 },
+      { id: '002', qty: 1 }
+    ];
+
+    let activeFilter = 'all';
+
+    // Render Product Grid matching Reference Section 03 Card Layout
+    function renderProducts() {
+      const grid = document.getElementById('product-grid');
+      const filtered = activeFilter === 'all'
+        ? PRODUCTS
+        : PRODUCTS.filter(p => p.category === activeFilter || (activeFilter === 'desk' && p.category === 'ink'));
+
+      grid.innerHTML = filtered.map(product => `
+        <article class="group flex flex-col">
+          <!-- High-Contrast Monochrome Product Frame -->
+          <div
+            onclick="openProductModal('${product.id}')"
+            class="relative aspect-[4/3] w-full bg-ink overflow-hidden cursor-pointer mb-4"
+          >
+            <img
+              src="${product.image}"
+              alt="${product.name} — ${product.categoryLabel}"
+              onerror="this.src='https://placehold.co/800x600/141414/ECEBE8?text=${encodeURIComponent(product.name)}'"
+              class="w-full h-full object-cover editorial-photo"
+            />
+            <!-- Subtle Crimson Editorial Accent Slash on Featured Items -->
+            ${product.accentRed ? `<span class="absolute top-3 right-3 w-2.5 h-2.5 rounded-full bg-crimson shadow"></span>` : ''}
+            <div class="absolute inset-0 bg-ink/0 group-hover:bg-ink/15 transition-colors"></div>
+          </div>
+
+          <!-- Reference Card Metadata Row: Index + Title + Subtitle + Circular Arrow Button -->
+          <div class="flex items-end justify-between pt-1 pb-3 grid-border-b">
+            <div>
+              <div class="flex items-center gap-2.5 mb-1">
+                <span class="font-mono text-[11px] font-medium text-ink/75">${product.id}</span>
+                <span class="font-mono text-[11px] font-semibold text-crimson">$${product.price}</span>
+              </div>
+              <h3
+                onclick="openProductModal('${product.id}')"
+                class="text-sm sm:text-base font-extrabold uppercase tracking-[0.04em] text-ink group-hover:text-crimson transition-colors cursor-pointer"
+              >
+                ${product.name}
+              </h3>
+              <p class="text-[10px] font-medium uppercase tracking-[0.14em] text-ink/65 mt-0.5">
+                ${product.categoryLabel}
+              </p>
+            </div>
+
+            <!-- Circular Arrow Trigger Button (Exact Reference Detail) -->
+            <div class="flex items-center gap-2">
+              <button
+                onclick="addToCart('${product.id}')"
+                title="Quick Add to Bag"
+                class="px-2.5 py-1.5 text-[9px] font-mono uppercase tracking-widest border border-ink/25 hover:bg-ink hover:text-stoneBg transition-colors cursor-pointer"
+              >
+                + BAG
+              </button>
+              <button
+                onclick="openProductModal('${product.id}')"
+                aria-label="Inspect ${product.name}"
+                class="w-9 h-9 rounded-full border border-ink/40 group-hover:border-crimson group-hover:bg-crimson group-hover:text-white flex items-center justify-center text-xs transition-all duration-200 cursor-pointer"
+              >
+                →
+              </button>
+            </div>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    // Filter Controls
+    function setFilter(category) {
+      activeFilter = category;
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        if (btn.dataset.filter === category) {
+          btn.classList.remove('border', 'border-ink/25', 'text-ink');
+          btn.classList.add('bg-ink', 'text-stoneBg');
+        } else {
+          btn.classList.remove('bg-ink', 'text-stoneBg');
+          btn.classList.add('border', 'border-ink/25', 'text-ink');
+        }
+      });
+      renderProducts();
+    }
+
+    function filterAndScroll(category) {
+      setFilter(category);
+      document.getElementById('catalog').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Shopping Bag Logic
+    function updateCartUI() {
+      const container = document.getElementById('cart-items-container');
+      const badge = document.getElementById('nav-cart-badge');
+      const subtotalEl = document.getElementById('cart-subtotal');
+
+      const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+      badge.textContent = totalCount;
+
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="h-full flex flex-col items-center justify-center text-center py-12">
+            <p class="font-display text-2xl uppercase text-ink/40 mb-2">ARCHIVE BAG EMPTY</p>
+            <p class="text-xs text-ink/60 max-w-xs mb-6">Explore our numbered stationery editions to curate your desk.</p>
+            <button onclick="toggleCart(false)" class="px-5 py-2.5 bg-ink text-stoneBg text-[10px] font-bold uppercase tracking-widest cursor-pointer">
+              BROWSE CATALOG
+            </button>
+          </div>
+        `;
+        subtotalEl.textContent = '$0.00';
+        return;
+      }
+
+      let subtotal = 0;
+      container.innerHTML = cart.map(item => {
+        const product = PRODUCTS.find(p => p.id === item.id);
+        if (!product) return '';
+        subtotal += product.price * item.qty;
+
+        return `
+          <div class="flex gap-4 pb-5 grid-border-b">
+            <img
+              src="${product.image}"
+              alt="${product.name}"
+              class="w-20 h-20 object-cover editorial-photo bg-ink shrink-0"
+            />
+            <div class="flex-1 flex flex-col justify-between">
+              <div class="flex items-start justify-between gap-2">
+                <div>
+                  <span class="font-mono text-[10px] text-ink/60">${product.id}</span>
+                  <h4 class="text-xs font-extrabold uppercase tracking-wider">${product.name}</h4>
+                  <p class="text-[10px] uppercase tracking-widest text-ink/60">${product.categoryLabel}</p>
+                </div>
+                <span class="font-mono text-xs font-semibold">$${product.price * item.qty}</span>
+              </div>
+
+              <div class="flex items-center justify-between mt-3">
+                <div class="inline-flex items-center border border-ink/25">
+                  <button onclick="changeQty('${product.id}', -1)" class="w-7 h-7 text-xs hover:bg-ink hover:text-stoneBg transition-colors cursor-pointer">−</button>
+                  <span class="px-3 font-mono text-xs">${item.qty}</span>
+                  <button onclick="changeQty('${product.id}', 1)" class="w-7 h-7 text-xs hover:bg-ink hover:text-stoneBg transition-colors cursor-pointer">+</button>
+                </div>
+                <button onclick="removeFromCart('${product.id}')" class="text-[10px] font-mono uppercase tracking-wider text-ink/50 hover:text-crimson cursor-pointer">
+                  REMOVE
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
+    }
+
+    function addToCart(id) {
+      const existing = cart.find(item => item.id === id);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ id, qty: 1 });
+      }
+      const product = PRODUCTS.find(p => p.id === id);
+      updateCartUI();
+      showToast(`ADDED ${product.name} (${product.id}) TO BAG`);
+    }
+
+    function changeQty(id, delta) {
+      const idx = cart.findIndex(item => item.id === id);
+      if (idx === -1) return;
+      cart[idx].qty += delta;
+      if (cart[idx].qty <= 0) {
+        cart.splice(idx, 1);
+      }
+      updateCartUI();
+    }
+
+    function removeFromCart(id) {
+      cart = cart.filter(item => item.id !== id);
+      updateCartUI();
+    }
+
+    function toggleCart(open) {
+      const drawer = document.getElementById('cart-drawer');
+      const overlay = document.getElementById('cart-overlay');
+      if (open) {
+        overlay.classList.remove('hidden');
+        drawer.classList.remove('translate-x-full');
+      } else {
+        overlay.classList.add('hidden');
+        drawer.classList.add('translate-x-full');
+      }
+    }
+
+    function handleCheckout() {
+      if (cart.length === 0) {
+        showToast('YOUR BAG IS CURRENTLY EMPTY');
+        return;
+      }
+      cart = [];
+      updateCartUI();
+      toggleCart(false);
+      showToast('ORDER DISPATCHED TO SWARIFLY ATELIER ✓');
+    }
+
+    // Product Quick-View Modal
+    function openProductModal(id) {
+      const product = PRODUCTS.find(p => p.id === id);
+      if (!product) return;
+
+      const modal = document.getElementById('product-modal');
+      const content = document.getElementById('product-modal-content');
+
+      content.innerHTML = `
+        <div class="bg-ink aspect-square md:aspect-auto md:h-full overflow-hidden">
+          <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover editorial-photo" />
+        </div>
+        <div class="p-6 sm:p-8 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-2">
+              <span class="font-mono text-xs text-crimson font-semibold">EDITION ${product.id}</span>
+              <span class="w-8 h-[1px] bg-ink/30"></span>
+            </div>
+            <h3 class="display-mega text-4xl text-ink mb-1">${product.name}</h3>
+            <p class="text-[10px] font-mono uppercase tracking-[0.16em] text-ink/60 mb-5">${product.categoryLabel} — $${product.price}</p>
+
+            <p class="text-xs leading-relaxed text-ink/85 mb-5">
+              ${product.description}
+            </p>
+
+            <div class="p-3.5 bg-stoneCard border border-ink/15 mb-6">
+              <span class="block font-mono text-[9px] uppercase tracking-widest text-ink/60 mb-1">ARCHITECTURAL SPECIFICATIONS</span>
+              <p class="text-[11px] font-medium text-ink">${product.specs}</p>
+            </div>
+          </div>
+
+          <button
+            onclick="addToCart('${product.id}'); closeProductModal(); toggleCart(true);"
+            class="w-full py-3.5 bg-crimson hover:bg-crimsonDark text-white text-[11px] font-bold uppercase tracking-[0.16em] flex items-center justify-center gap-3 transition-colors cursor-pointer"
+          >
+            <span>ADD TO BAG — $${product.price}</span>
+            <span>→</span>
+          </button>
+        </div>
+      `;
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeProductModal() {
+      const modal = document.getElementById('product-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // Contact / Bespoke Modal
+    function openContactModal(topic) {
+      const modal = document.getElementById('contact-modal');
+      if (topic) {
+        const select = document.getElementById('contact-topic');
+        if (select) select.value = topic;
+      }
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeContactModal() {
+      const modal = document.getElementById('contact-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function submitContactForm(e) {
+      e.preventDefault();
+      e.target.reset();
+      closeContactModal();
+      showToast('BESPOKE INQUIRY RECEIVED BY SWARIFLY STUDIO');
+    }
+
+    // Story / Manifesto Modal
+    function openStoryModal() {
+      const modal = document.getElementById('story-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeStoryModal() {
+      const modal = document.getElementById('story-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // Mobile Menu Toggle
+    function toggleMobileMenu() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    }
+
+    // Toast Feedback Helper
+    let toastTimer;
+    function showToast(message) {
+      const toast = document.getElementById('toast-notification');
+      const msgEl = document.getElementById('toast-message');
+      msgEl.textContent = message;
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 3000);
+    }
+
+    // Initialize Page
+    window.addEventListener('DOMContentLoaded', () => {
+      renderProducts();
+      updateCartUI();
+    });
+  </script>
+</body>
+</html>
